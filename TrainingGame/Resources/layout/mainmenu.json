@@ -1,0 +1,63 @@
+{
+	"sprite": {
+		"tag":0,
+		"name":"layer_main_menu_bg",
+		"type":"sprite",
+		"position":[240,400],
+		"image":"bg_main_menu.jpg",
+		"visible":true,
+		"child":{	
+		}
+	},
+	"menu": {
+		"tag":0,
+		"name":"menu_contaner",
+		"type":"menu",
+		"position":[0,0],
+		"child":{
+			
+			"menuItemImage0": {
+				"tag":101,
+				"order":0,
+				"name":"play_button",
+				"image":"button_play.png",
+				"type":"menuItemImage",
+				"position":[240,550],
+				"scale":1.5,
+				"visible":true,
+				"touchable":true,
+				"child":{
+					
+				}
+			},
+			"menuItemImage1": {
+				"tag":101,
+				"order":0,
+				"name":"setting_button",
+				"image":"button_setting.png",
+				"type":"menuItemImage",
+				"position":[240,400],
+				"scale":1.5,
+				"visible":true,
+				"touchable":true,
+				"child":{
+					
+				}
+			},
+			"menuItemImage2": {
+				"tag":101,
+				"order":0,
+				"name":"exit_button",
+				"image":"button_quit.png",
+				"type":"menuItemImage",
+				"position":[240,250],
+				"scale":1.5,
+				"visible":true,
+				"touchable":true,
+				"child":{
+					
+				}
+			}
+		}
+	}
+}

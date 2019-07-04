@@ -1,0 +1,24 @@
+{
+	"layer": {
+		"tag":0,
+		"name":"layer_logo",
+		"type":"layer",
+		"position":[0,0],
+		"child":{
+		"sprite0": {
+			"tag":101,
+			"order":0,
+			"name":"sprite sample",
+			"image":"logo.png",
+			"type":"sprite",
+			"position":[240,400],
+			"scale":0.5,
+			"visible":true,
+			"touchable":true,
+			"child":{
+				
+			}
+		}
+		}
+	}
+}

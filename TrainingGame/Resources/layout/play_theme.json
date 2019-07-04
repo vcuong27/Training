@@ -1,0 +1,84 @@
+{
+	"layer": {
+		"tag":0,
+		"name":"layer_play",
+		"type":"layer",
+		"position":[0,0],
+		"child":{
+			"sprite": {
+				"tag":0,
+				"name":"layer_play_bg",
+				"type":"sprite",
+				"position":[240,400],
+				"image":"bg_play.jpg",
+				"visible":true,
+				"child":{	
+				}
+			},
+			"label0": {
+				"tag":101,
+				"order":0,
+				"name":"score_text_label",
+				"type":"label",
+				"text":"Score : ",
+				"position":[150,750],
+				"scale":1.0,
+				"visible":true,
+				"touchable":true,
+				"child":{
+					
+				}
+			},
+			"label1": {
+				"tag":101,
+				"order":0,
+				"name":"GPSText_label",
+				"type":"label",
+				"text":"0",
+				"position":[300,750],
+				"scale":1.0,
+				"visible":true,
+				"touchable":true,
+				"child":{
+					
+				}
+			},
+			"label1": {
+				"tag":101,
+				"order":0,
+				"name":"combo_label",
+				"type":"label",
+				"text":"0",
+				"position":[240,650],
+				"scale":1.0,
+				"visible":true,
+				"touchable":true,
+				"child":{
+					
+				}
+			}
+		}
+	},
+	"menu": {
+		"tag":0,
+		"name":"menu_contaner",
+		"type":"menu",
+		"position":[0,0],
+		"child":{
+			"menuItemImage0": {
+				"tag":101,
+				"order":0,
+				"name":"pause_button",
+				"image":"blockerIcon.png",
+				"type":"menuItemImage",
+				"position":[25,750],
+				"scale":0.1,
+				"visible":true,
+				"touchable":true,
+				"child":{
+					
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,34 @@
+{
+	"layer": {
+		"tag":0,
+		"name":"layer_loading",
+		"type":"layer",
+		"position":[0,0],
+		"child":{
+			"sprite1": {
+				"tag":0,
+				"name":"layer_loading_bg",
+				"type":"sprite",
+				"position":[240,400],
+				"image":"bg_loading.jpg",
+				"visible":true,
+				"child":{	
+				}
+			},
+			"sprite0": {
+				"tag":101,
+				"order":0,
+				"name":"loading_sprite",
+				"image":"loading.png",
+				"type":"sprite",
+				"position":[240,400],
+				"scale":0.5,
+				"visible":true,
+				"touchable":true,
+				"child":{
+					
+				}
+			}
+		}
+	}
+}

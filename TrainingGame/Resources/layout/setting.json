@@ -1,0 +1,77 @@
+{
+	"sprite": {
+		"tag":0,
+		"name":"layer_setting_bg",
+		"type":"sprite",
+		"position":[240,400],
+		"image":"bg_setting.jpg",
+		"visible":true,
+		"child":{
+		
+		}
+	},
+	"label0": {
+		"tag":101,
+		"order":0,
+		"name":"Setting_text",
+		"type":"label",
+		"text":"setting",
+		"position":[240,750],
+		"scale":1.0,
+		"visible":true,
+		"touchable":true,
+		"child":{
+		
+		}
+	},
+	"menu": {
+		"tag":0,
+		"name":"menu_contaner",
+		"type":"menu",
+		"position":[0,0],
+		"child":{
+			"menuItemImage1": {
+				"tag":101,
+				"order":0,
+				"name":"sample_button",
+				"image":"button_sample_button.png",
+				"type":"menuItemImage",
+				"position":[240,550],
+				"scale":1.5,
+				"visible":true,
+				"touchable":true,
+				"child":{
+					
+				}
+			},
+			"menuItemImage1": {
+				"tag":101,
+				"order":0,
+				"name":"sample_button",
+				"image":"button_sample_button.png",
+				"type":"menuItemImage",
+				"position":[240,400],
+				"scale":1.5,
+				"visible":true,
+				"touchable":true,
+				"child":{
+					
+				}
+			},
+			"menuItemImage0": {
+				"tag":101,
+				"order":0,
+				"name":"back_button",
+				"image":"button_back.png",
+				"type":"menuItemImage",
+				"position":[240,250],
+				"scale":1.5,
+				"visible":true,
+				"touchable":true,
+				"child":{
+					
+				}
+			}
+		}
+	}
+}

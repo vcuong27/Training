@@ -1,0 +1,40 @@
+#Models: 0
+
+#2D Textures: 6
+ID 0
+FILE "..\Resources\Textures\btPlay.tga"
+TILING CLAMP
+
+ID 1
+FILE "..\Resources\Textures\btFacebook.tga"
+TILING CLAMP
+
+ID 2
+FILE "..\Resources\Textures\btGoogle.tga"
+TILING CLAMP
+
+ID 3
+FILE "..\Resources\Textures\btShareFace.tga"
+TILING CLAMP
+
+ID 4
+FILE "..\Resources\Textures\btShareGoogle.tga"
+TILING CLAMP
+
+ID 5
+FILE "..\Resources\Textures\btExit.tga"
+TILING CLAMP
+
+#Shades: 2
+
+ID 0
+VS "..\Resources\Shaders\ObjShaderVS.vs"
+FS "..\Resources\Shaders\ObjShaderFS.fs"
+STATES 1
+STATE ALPHA
+
+ID 1
+VS "..\Resources\Shaders\TriangleShaderVS.vs"
+FS "..\Resources\Shaders\TriangleShaderFS.fs"
+STATES 0
+
