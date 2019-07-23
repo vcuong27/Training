@@ -1,10 +1,5 @@
 #pragma once
-#ifndef ANDROID
 #include "utilities.h"
-#else
-#include "../../Utilities/Math.h"
-#endif
-
 
 class Shaders 
 {

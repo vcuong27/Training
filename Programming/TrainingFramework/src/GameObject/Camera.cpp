@@ -68,13 +68,6 @@ Matrix Camera::GetLookAtCamera()
 {
 	Matrix matrix = GetMatView();
 	return matrix*m_MatProjection;
-
-	/*tempC.SetIdentity();
-	GetMatView();
-
-	tempC.Multi(m_MatView);
-	tempC.Multi(m_MatProjection);
-	return &tempC;*/
 }
 
 Vector3 Camera::GetLocation()

@@ -1,9 +1,5 @@
 #include "Texture.h"
 
-#ifdef ANDROID	
-#include "../../Utilities/TGA.h"
-#endif
-
 int Texture::Init(const char *szFileName,GLuint iWapMode,GLuint iFilterMode)
 {
 	glGenTextures(1,&m_iTextGlId);

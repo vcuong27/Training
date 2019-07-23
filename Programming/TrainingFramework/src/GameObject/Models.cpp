@@ -94,70 +94,7 @@ int Models::Init(const char *szFileName, GLuint type)
 		}
 		delete [] strtemp;
 	}
-	if(type==RAW)
-	{
-
-		fseek(f,0,SEEK_END);
-		GLuint iFileSize = ftell(f);
-		fseek(f,0,SEEK_SET);
-		GLint iSizeMap =(GLuint)sqrt((GLfloat)iFileSize);
-		GLint iWidth = (GLuint)(iSizeMap/HEIGHT_MAP_SCALE_SIZE);
-		//GLint iWidth = iHeight;
-
-		unsigned char * pBuffer = new unsigned char[iFileSize];
-		fread( pBuffer, 1, iFileSize, f );
-		fclose(f);
-		
-		if(HEIGHT_MAP_SCALE_SIZE==1)Filter(pBuffer,iWidth);
-		iNumVertex = iWidth*iWidth;
-
-		verticesData=new Vertex[iNumVertex];
-		GLuint iCount=0;
-
-		GLfloat fAvg,fNum;
-		for(GLint i=0;i<iWidth;i++){
-			for(GLint j=0;j<iWidth;j++)
-			{
-				fAvg =0.0;
-				fNum =0.0;
-				for(GLint ii=i;ii<i+HEIGHT_MAP_SCALE_SIZE;ii++)
-				{
-					for(GLint jj=j;jj<j+HEIGHT_MAP_SCALE_SIZE;jj++)
-					{
-						if((ii<0)||(ii>=iWidth)||(jj<0)||(jj>iWidth)) continue;
-						fAvg+=pBuffer[(GLint)(ii*HEIGHT_MAP_SCALE_SIZE*iSizeMap+jj*HEIGHT_MAP_SCALE_SIZE)];
-						fNum+=1.0;
-					}
-				}
-				verticesData[iCount].position.y=(GLfloat)((fAvg/fNum)/HEIGHT_MAP_SCALE);
-				verticesData[iCount].position.x=(GLfloat)(i-iWidth/2)*HEIGHT_MAP_SCALE_SIZE;
-				verticesData[iCount].position.z=(GLfloat)(j-iWidth/2)*HEIGHT_MAP_SCALE_SIZE;
-				verticesData[iCount].uv.x=(GLfloat)i/iWidth;
-				verticesData[iCount].uv.y=-(GLfloat)j/iWidth;
-				iCount++;
-			}
-		}
-		delete [] pBuffer;
-
-		m_iNumIndices= 2*(iWidth-1)*(iWidth-1)*3;
-		Indices= new GLuint[m_iNumIndices];
-		iCount=0;
-		for(int i=0;i<iWidth-1;i++)
-		{
-			for(int j=0;j<iWidth-1;j++)
-			{
-				Indices[iCount++]=i*iWidth+j;
-				Indices[iCount++]=(i+1)*iWidth+j+1;
-				Indices[iCount++]=(i+1)*iWidth+j;
-				Indices[iCount++]=i*iWidth+j;
-				Indices[iCount++]=i*iWidth+j+1;
-				Indices[iCount++]=(i+1)*iWidth+j+1;
-			}
-		}
-		GLuint zzz=iCount;
-	}
-
-
+	
 	//buffer object
 	glGenBuffers(1, &m_iVboID);
 	glBindBuffer(GL_ARRAY_BUFFER, m_iVboID);
@@ -183,7 +120,7 @@ int Models::Init(GLuint type)
 	GLuint iNumVertex=0;
 	Vertex *verticesData;
 	GLuint *Indices;
-	if(type == GAME_OBJ)
+	if(type == GAME_3D_SPRITE)
 	{
 		//gen model
 		iNumVertex		= 8;
@@ -306,7 +243,7 @@ int Models::Init(GLuint type)
 		Indices [ii] = 7; ii++;
 	}
 
-	if(type == GAME_BUTTON)
+	if(type == GAME_2D_SPRITE)
 	{
 		iNumVertex		= 4;
 		verticesData	= new Vertex[iNumVertex];

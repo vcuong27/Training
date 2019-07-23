@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug-AMD|Win32">
       <Configuration>Debug-AMD</Configuration>
@@ -257,52 +257,28 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Android_Native.cpp" />
     <ClCompile Include="src\Application.cpp" />
-    <ClCompile Include="src\GameManager\ResourceManager.cpp" />
-    <ClCompile Include="src\GameManager\SceneManager.cpp" />
     <ClCompile Include="src\GameObject\BaseObject.cpp" />
-    <ClCompile Include="src\GameObject\Button.cpp" />
+    <ClCompile Include="src\GameObject\Sprite2D.cpp" />
     <ClCompile Include="src\GameObject\Camera.cpp" />
-    <ClCompile Include="src\GameObject\GameObject.cpp" />
+    <ClCompile Include="src\GameObject\Sprite3D.cpp" />
     <ClCompile Include="src\GameObject\Models.cpp" />
-    <ClCompile Include="src\GameObject\Pieces.cpp" />
     <ClCompile Include="src\GameObject\Shaders.cpp" />
     <ClCompile Include="src\GameObject\Texture.cpp" />
-    <ClCompile Include="src\GameObject\Wave.cpp" />
-    <ClCompile Include="src\GameState\GameStatebase.cpp" />
-    <ClCompile Include="src\GameState\GameStateMachine.cpp" />
-    <ClCompile Include="src\GameState\GSIntro.cpp" />
-    <ClCompile Include="src\GameState\GSMenu.cpp" />
-    <ClCompile Include="src\GameState\GSPlay.cpp" />
     <ClCompile Include="src\TrainingFramework.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Application.h" />
     <ClInclude Include="src\GameConfig.h" />
-    <ClInclude Include="src\GameManager\ISingleton.h" />
-    <ClInclude Include="src\GameManager\ResourceManager.h" />
-    <ClInclude Include="src\GameManager\SceneManager.h" />
     <ClInclude Include="src\GameManager\Singleton.h" />
     <ClInclude Include="src\GameObject\BaseObject.h" />
-    <ClInclude Include="src\GameObject\Button.h" />
+    <ClInclude Include="src\GameObject\Sprite2D.h" />
     <ClInclude Include="src\GameObject\Camera.h" />
-    <ClInclude Include="src\GameObject\GameObject.h" />
+    <ClInclude Include="src\GameObject\Sprite3D.h" />
     <ClInclude Include="src\GameObject\Models.h" />
-    <ClInclude Include="src\GameObject\Pieces.h" />
     <ClInclude Include="src\GameObject\Shaders.h" />
     <ClInclude Include="src\GameObject\Texture.h" />
     <ClInclude Include="src\GameObject\Vertex.h" />
-    <ClInclude Include="src\GameObject\Wave.h" />
-    <ClInclude Include="src\GameState\GameStatebase.h" />
-    <ClInclude Include="src\GameState\GameStateMachine.h" />
-    <ClInclude Include="src\GameState\GSIntro.h" />
-    <ClInclude Include="src\GameState\GSMenu.h" />
-    <ClInclude Include="src\GameState\GSPlay.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="..\Data\RM.txt" />
-    <Text Include="..\Data\RM_android.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

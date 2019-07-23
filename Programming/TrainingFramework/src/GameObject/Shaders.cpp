@@ -18,7 +18,7 @@ Shaders::~Shaders()
 
 GLint Shaders::Init(char * fileVertexShader, char * fileFragmentShader)
 {
-	LOGI("Compile Shader:%s\t%s\t\t",fileVertexShader,fileFragmentShader);
+	LOGI("Compile Shader:%s\t%s\t\t\n",fileVertexShader,fileFragmentShader);
 	vertexShader = esLoadShader(GL_VERTEX_SHADER, fileVertexShader);
 	if ( vertexShader == 0 )
 	{

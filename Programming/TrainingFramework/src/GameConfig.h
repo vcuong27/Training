@@ -39,8 +39,8 @@
 #define NONE					111 
 #define RAW						222 
 #define NFG						333
-#define GAME_OBJ				444
-#define GAME_BUTTON				555
+#define GAME_3D_SPRITE			444
+#define GAME_2D_SPRITE			555
 #define HEIGHT_MAP_SCALE		10.0f
 #define HEIGHT_MAP_SCALE_TEXT	25.0f
 #define HEIGHT_MAP_SCALE_SIZE	2.0f

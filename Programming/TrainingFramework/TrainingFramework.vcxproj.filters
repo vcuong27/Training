@@ -1,152 +1,81 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="src">
-      <UniqueIdentifier>{ee3bae1d-f195-4547-b14d-4c4214bec13d}</UniqueIdentifier>
+    <Filter Include="TrainingFramework\src">
+      <UniqueIdentifier>{8a7743df-99d6-42d7-8300-83c77d25c345}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\GameManager">
-      <UniqueIdentifier>{bb545c58-c47f-48fd-bd20-3a4d1597bd95}</UniqueIdentifier>
+    <Filter Include="TrainingFramework">
+      <UniqueIdentifier>{b7c91549-da04-4eee-96da-520fa8f75a57}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\GameObject">
-      <UniqueIdentifier>{70e06820-a844-4c46-b946-d11f8fb90d41}</UniqueIdentifier>
+    <Filter Include="TrainingFramework\src\GameObject">
+      <UniqueIdentifier>{486a991c-381d-4836-b7f7-6a9b4c66f5d8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\GameState">
-      <UniqueIdentifier>{3a36013b-9485-4abd-9c54-113160b30e6d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Data">
-      <UniqueIdentifier>{f86b958b-1d5c-43c8-b876-db6842907afc}</UniqueIdentifier>
+    <Filter Include="TrainingFramework\src\GameManager">
+      <UniqueIdentifier>{7027cc7e-3941-43d3-9fd3-7009a76c222b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Android_Native.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\Application.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameManager\ResourceManager.cpp">
-      <Filter>src\GameManager</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameManager\SceneManager.cpp">
-      <Filter>src\GameManager</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameObject\BaseObject.cpp">
-      <Filter>src\GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameObject\Button.cpp">
-      <Filter>src\GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameObject\Camera.cpp">
-      <Filter>src\GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameObject\GameObject.cpp">
-      <Filter>src\GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameObject\Models.cpp">
-      <Filter>src\GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameObject\Pieces.cpp">
-      <Filter>src\GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameObject\Shaders.cpp">
-      <Filter>src\GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameObject\Texture.cpp">
-      <Filter>src\GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameObject\Wave.cpp">
-      <Filter>src\GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameState\GameStatebase.cpp">
-      <Filter>src\GameState</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameState\GameStateMachine.cpp">
-      <Filter>src\GameState</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameState\GSIntro.cpp">
-      <Filter>src\GameState</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameState\GSMenu.cpp">
-      <Filter>src\GameState</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameState\GSPlay.cpp">
-      <Filter>src\GameState</Filter>
+      <Filter>TrainingFramework\src</Filter>
     </ClCompile>
     <ClCompile Include="src\TrainingFramework.cpp">
-      <Filter>src</Filter>
+      <Filter>TrainingFramework\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameObject\BaseObject.cpp">
+      <Filter>TrainingFramework\src\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameObject\Sprite2D.cpp">
+      <Filter>TrainingFramework\src\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameObject\Camera.cpp">
+      <Filter>TrainingFramework\src\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameObject\Sprite3D.cpp">
+      <Filter>TrainingFramework\src\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameObject\Models.cpp">
+      <Filter>TrainingFramework\src\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameObject\Shaders.cpp">
+      <Filter>TrainingFramework\src\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameObject\Texture.cpp">
+      <Filter>TrainingFramework\src\GameObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Application.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameManager\ISingleton.h">
-      <Filter>src\GameManager</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameManager\ResourceManager.h">
-      <Filter>src\GameManager</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameManager\SceneManager.h">
-      <Filter>src\GameManager</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameManager\Singleton.h">
-      <Filter>src\GameManager</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameObject\BaseObject.h">
-      <Filter>src\GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameObject\Button.h">
-      <Filter>src\GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameObject\Camera.h">
-      <Filter>src\GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameObject\GameObject.h">
-      <Filter>src\GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameObject\Models.h">
-      <Filter>src\GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameObject\Pieces.h">
-      <Filter>src\GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameObject\Shaders.h">
-      <Filter>src\GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameObject\Texture.h">
-      <Filter>src\GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameObject\Vertex.h">
-      <Filter>src\GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameObject\Wave.h">
-      <Filter>src\GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameState\GameStatebase.h">
-      <Filter>src\GameState</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameState\GameStateMachine.h">
-      <Filter>src\GameState</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameState\GSIntro.h">
-      <Filter>src\GameState</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameState\GSMenu.h">
-      <Filter>src\GameState</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameState\GSPlay.h">
-      <Filter>src\GameState</Filter>
+      <Filter>TrainingFramework\src</Filter>
     </ClInclude>
     <ClInclude Include="src\GameConfig.h">
-      <Filter>src</Filter>
+      <Filter>TrainingFramework\src</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="..\Data\RM.txt">
-      <Filter>Data</Filter>
-    </Text>
-    <Text Include="..\Data\RM_android.txt">
-      <Filter>Data</Filter>
-    </Text>
+    <ClInclude Include="src\GameManager\Singleton.h">
+      <Filter>TrainingFramework\src\GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameObject\BaseObject.h">
+      <Filter>TrainingFramework\src\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameObject\Sprite2D.h">
+      <Filter>TrainingFramework\src\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameObject\Camera.h">
+      <Filter>TrainingFramework\src\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameObject\Sprite3D.h">
+      <Filter>TrainingFramework\src\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameObject\Models.h">
+      <Filter>TrainingFramework\src\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameObject\Shaders.h">
+      <Filter>TrainingFramework\src\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameObject\Texture.h">
+      <Filter>TrainingFramework\src\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameObject\Vertex.h">
+      <Filter>TrainingFramework\src\GameObject</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

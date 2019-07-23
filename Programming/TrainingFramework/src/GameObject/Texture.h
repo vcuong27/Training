@@ -1,9 +1,6 @@
 #pragma once
-#ifdef WIN32
 	#include "utilities.h" 
-#else
-#include "../../Utilities/Math.h"
-#endif
+
 
 
 class Texture
