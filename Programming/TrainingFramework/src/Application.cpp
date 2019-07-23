@@ -20,11 +20,12 @@ void Application::Init()
 {
 	glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
 
-	Shaders		*m_Shaders;
-	Texture		*m_texture;
-	Models		*m_model;
-	Camera   *m_Camera;
+	Shaders *m_Shaders;
+	Texture *m_texture;
+	Models *m_model;
+	Camera *m_Camera;
 
+	//button
 	m_Shaders = new Shaders();
 	m_Shaders->Init("..\\Data\\Shaders\\2DShaderVS.vs", "..\\Data\\Shaders\\2DShaderFS.fs");
 
@@ -45,6 +46,8 @@ void Application::Init()
 	m_Sprite2D->Set2DPosition(iCenterWidth, dHeight);
 	m_Sprite2D->Init();
 
+
+	//box
 	Vector3 CameraPos(0, 10, 30);
 	Vector3 TargetPos(0, 6, 0);
 	float fFovY = 0.7f;
@@ -53,10 +56,6 @@ void Application::Init()
 
 	m_Shaders = new Shaders();
 	m_Shaders->Init("..\\Data\\Shaders\\3DShaderVS.vs", "..\\Data\\Shaders\\3DShaderFS.fs");
-
-
-	m_texture = new Texture();
-	m_texture->Init("..\\Data\\Textures\\btPlay.tga", GL_CLAMP_TO_EDGE, GL_LINEAR_MIPMAP_LINEAR);
 
 	m_model = new Models();
 	m_model->Init(GAME_3D_SPRITE);
@@ -67,6 +66,18 @@ void Application::Init()
 	m_Sprite3D->SetColor(Vector4(0.0, 0.0, 1.0, 0.5));
 	m_Sprite3D->SetCamera(m_Camera);
 	m_Sprite3D->Init();
+
+	//cirle
+	m_model = new Models();
+	m_model->Init("..\\Data\\Model\\Bila.nfg", NFG);
+
+	m_Sprite3D1 = new Sprite3D();
+	m_Sprite3D1->SetShaders(m_Shaders);
+	m_Sprite3D1->SetModels(m_model);
+	m_Sprite3D1->Set3DScale(Vector3(0.1, 0.1, 0.1));
+	m_Sprite3D1->SetColor(Vector4(0.0, 1.0, 1.0, 0.5));
+	m_Sprite3D1->SetCamera(m_Camera);
+	m_Sprite3D1->Init();
 }
 
 void Application::Update(GLfloat deltaTime)
@@ -79,9 +90,10 @@ void Application::Update(GLfloat deltaTime)
 void Application::Render()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	//Draw();
+	//Draw
 	m_Sprite3D->Draw();
 	m_Sprite2D->Draw();
+	m_Sprite3D1->Draw();
 }
 
 void Application::HandleKeyEvent(unsigned char key, bool bIsPresseded)

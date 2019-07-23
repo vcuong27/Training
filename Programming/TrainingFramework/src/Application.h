@@ -23,6 +23,7 @@ private:
 
 	Sprite2D *	m_Sprite2D;
 	Sprite3D *	m_Sprite3D;
+	Sprite3D *	m_Sprite3D1;
 
 };
 
