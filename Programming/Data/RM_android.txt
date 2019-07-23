@@ -1,0 +1,40 @@
+#Models: 0
+
+#2D Textures: 6
+ID 0
+FILE "/sdcard/Data/Textures/btPlay.tga"
+TILING CLAMP
+
+ID 1
+FILE "/sdcard/Data/Textures/btFacebook.tga"
+TILING CLAMP
+
+ID 2
+FILE "/sdcard/Data/Textures/btGoogle.tga"
+TILING CLAMP
+
+ID 3
+FILE "/sdcard/Data/Textures/btShareFace.tga"
+TILING CLAMP
+
+ID 4
+FILE "/sdcard/Data/Textures/btShareGoogle.tga"
+TILING CLAMP
+
+ID 5
+FILE "/sdcard/Data/Textures/btExit.tga"
+TILING CLAMP
+
+#Shades: 2
+
+ID 0
+VS "/sdcard/Data/Shaders/ObjShaderVS.vs"
+FS "/sdcard/Data/Shaders/ObjShaderFS.fs"
+STATES 1
+STATE ALPHA
+
+ID 1
+VS "/sdcard/Data/Shaders/TriangleShaderVS.vs"
+FS "/sdcard/Data/Shaders/TriangleShaderFS.fs"
+STATES 0
+
