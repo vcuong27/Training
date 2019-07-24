@@ -48,7 +48,7 @@ void Application::Init()
 	m_Camera->Init(CameraPos, TargetPos, fFovY, (GLfloat)screenWidth / screenHeight, 1.0f, 5000.0f, 1.0f);
 
 
-	//plan
+	//plane
 	m_model = new Models();
 	m_model->Init("..\\Data\\Model\\Plan.nfg", NFG);
 	m_Shaders = new Shaders();
@@ -56,9 +56,9 @@ void Application::Init()
 	m_texture = new Texture();
 	m_texture->Init("..\\Data\\Textures\\Dirt.tga", GL_CLAMP_TO_EDGE, GL_LINEAR_MIPMAP_LINEAR);
 
-	m_Plan = new Sprite3D(m_model, m_Shaders, m_Camera, m_texture);
-	m_Plan->Set3DScale(Vector3(20, 20, 20));
-	m_Plan->Init();
+	m_Plane = new Sprite3D(m_model, m_Shaders, m_Camera, m_texture);
+	m_Plane->Set3DScale(Vector3(20, 20, 20));
+	m_Plane->Init();
 
 	//box
 	m_model = new Models();
@@ -91,7 +91,7 @@ void Application::Init()
 void Application::Update(GLfloat deltaTime)
 {
 	//update
-	m_Plan->Update(deltaTime);
+	m_Plane->Update(deltaTime);
 	m_Sprite3D->Update(deltaTime);
 	m_Sprite2D->Update(deltaTime);
 	m_Sprite3D1->Update(deltaTime);
@@ -103,7 +103,7 @@ void Application::Render()
 	//Draw
 	
 	//3D
-	m_Plan->Draw();
+	m_Plane->Draw();
 	m_Sprite3D->Draw();
 	m_Sprite3D1->Draw();
 	
