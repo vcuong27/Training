@@ -126,66 +126,67 @@ int Models::Init(GLuint type)
 		iNumVertex		= 8;
 		verticesData	= new Vertex[iNumVertex];
 		int ii			= 0;
-		float ratio		= 0.7f;
-		float r			= RADIUS;
-		float angle		= COLUMN/2;
+		float ratio		= 1;
+		float r			= 1;
+		float angle		= 0;
 		float height	= -1.0;
 		//A
-		verticesData[ii].position.x	= r * sin(angle);
-		verticesData[ii].position.y	= 0.0;
-		verticesData[ii].position.z	= r * cos(angle);
+		verticesData[ii].position.x	= 1;
+		verticesData[ii].position.y	= 1;
+		verticesData[ii].position.z	= 1;
 		verticesData[ii].uv.x		= 0.0;
 		verticesData[ii].uv.y		= 0.0;
 		ii++;
 		//B
-		verticesData[ii].position.x	= - r * sin(angle);
-		verticesData[ii].position.y	= 0.0;
-		verticesData[ii].position.z	= r * cos(angle);
+		verticesData[ii].position.x	= -1;
+		verticesData[ii].position.y	= 1;
+		verticesData[ii].position.z	= 1;
 		verticesData[ii].uv.x		= 0.0;
 		verticesData[ii].uv.y		= 0.0;
 		ii++;
 		//C
-		verticesData[ii].position.x	= - ratio * r * sin(angle);
-		verticesData[ii].position.y	= 0.0;
-		verticesData[ii].position.z	= ratio * r * cos(angle);
+		verticesData[ii].position.x	= -1;
+		verticesData[ii].position.y	= 1;
+		verticesData[ii].position.z	= -1;
 		verticesData[ii].uv.x		= 0.0;
 		verticesData[ii].uv.y		= 0.0;
 		ii++;
 		//D
-		verticesData[ii].position.x	= ratio * r * sin(angle);
-		verticesData[ii].position.y	= 0.0;
-		verticesData[ii].position.z	= ratio * r * cos(angle);
+		verticesData[ii].position.x	= 1;
+		verticesData[ii].position.y	= 1;
+		verticesData[ii].position.z	= -1;
 		verticesData[ii].uv.x		= 0.0;
 		verticesData[ii].uv.y		= 0.0;
 		ii++;
 
-		//A'
-		verticesData[ii].position.x	= r * sin(angle);
-		verticesData[ii].position.y	= height;
-		verticesData[ii].position.z	= r * cos(angle);
-		verticesData[ii].uv.x		= 0.0;
-		verticesData[ii].uv.y		= 0.0;
+		//A
+		verticesData[ii].position.x = 1;
+		verticesData[ii].position.y = -1;
+		verticesData[ii].position.z = 1;
+		verticesData[ii].uv.x = 0.0;
+		verticesData[ii].uv.y = 0.0;
 		ii++;
-		//B'
-		verticesData[ii].position.x	= - r * sin(angle);
-		verticesData[ii].position.y	=  height;
-		verticesData[ii].position.z	= r * cos(angle);
-		verticesData[ii].uv.x		= 0.0;
-		verticesData[ii].uv.y		= 0.0;
+		//B
+		verticesData[ii].position.x = -1;
+		verticesData[ii].position.y = -1;
+		verticesData[ii].position.z = 1;
+		verticesData[ii].uv.x = 0.0;
+		verticesData[ii].uv.y = 0.0;
 		ii++;
-		//C'
-		verticesData[ii].position.x	= - ratio * r * sin(angle);
-		verticesData[ii].position.y	= height;
-		verticesData[ii].position.z	= ratio * r * cos(angle);
-		verticesData[ii].uv.x		= 0.0;
-		verticesData[ii].uv.y		= 0.0;
+		//C
+		verticesData[ii].position.x = -1;
+		verticesData[ii].position.y = -1;
+		verticesData[ii].position.z = -1;
+		verticesData[ii].uv.x = 0.0;
+		verticesData[ii].uv.y = 0.0;
 		ii++;
-		//D'
-		verticesData[ii].position.x	= ratio * r * sin(angle);
-		verticesData[ii].position.y	= height;
-		verticesData[ii].position.z	= ratio * r * cos(angle);
-		verticesData[ii].uv.x		= 0.0;
-		verticesData[ii].uv.y		= 0.0;
+		//D
+		verticesData[ii].position.x = 1;
+		verticesData[ii].position.y = -1;
+		verticesData[ii].position.z = -1;
+		verticesData[ii].uv.x = 0.0;
+		verticesData[ii].uv.y = 0.0;
+		ii++;
 
 		ii		= 0;
 		m_iNumIndices = 36;

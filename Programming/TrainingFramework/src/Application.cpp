@@ -33,49 +33,65 @@ void Application::Init()
 	m_texture->Init("..\\Data\\Textures\\btPlay.tga", GL_CLAMP_TO_EDGE, GL_LINEAR_MIPMAP_LINEAR);
 
 	m_model = new Models();
-	m_model->Init(GAME_2D_SPRITE);
-
-	GLint dHeight = screenHeight / 8;
-	GLint iCenterWidth = screenWidth / 2 - screenWidth / 8;
+	m_model->Init("..\\Data\\Model\\Sprite2D.nfg", NFG);
 
 	m_Sprite2D = new Sprite2D(m_model,m_Shaders,m_texture);
-	m_Sprite2D->Set2DPosition(iCenterWidth, dHeight );
+	m_Sprite2D->Set2DPosition(100, 50);
 	m_Sprite2D->Init();
 
 
-	//box
-	Vector3 CameraPos(0, 10, 30);
-	Vector3 TargetPos(0, 6, 0);
+	//camera
+	Vector3 CameraPos(10, 40, 40);
+	Vector3 TargetPos(0, 0, 0);
 	float fFovY = 0.7f;
 	m_Camera = new Camera();
 	m_Camera->Init(CameraPos, TargetPos, fFovY, (GLfloat)screenWidth / screenHeight, 1.0f, 5000.0f, 1.0f);
 
+
+	//plan
+	m_model = new Models();
+	m_model->Init("..\\Data\\Model\\Plan.nfg", NFG);
+	m_Shaders = new Shaders();
+	m_Shaders->Init("..\\Data\\Shaders\\ColorShader.vs", "..\\Data\\Shaders\\TextureShader.fs");
+	m_texture = new Texture();
+	m_texture->Init("..\\Data\\Textures\\Dirt.tga", GL_CLAMP_TO_EDGE, GL_LINEAR_MIPMAP_LINEAR);
+
+	m_Plan = new Sprite3D(m_model, m_Shaders, m_Camera, m_texture);
+	m_Plan->Set3DScale(Vector3(20, 20, 20));
+	m_Plan->Init();
+
+	//box
+	m_model = new Models();
+	m_model->Init("..\\Data\\Model\\box.nfg", NFG);
 	m_Shaders = new Shaders();
 	m_Shaders->Init("..\\Data\\Shaders\\ColorShader.vs", "..\\Data\\Shaders\\ColorShader.fs");
 
-	m_model = new Models();
-	m_model->Init(GAME_3D_SPRITE);
-
 	m_Sprite3D = new Sprite3D(m_model, m_Shaders, m_Camera, Vector4(0.0, 0.0, 1.0, 0.5));
-	
+	m_Sprite3D->Set3DScale(Vector3(1, 1, 1));
 	m_Sprite3D->Init();
+
 
 	//cirle
 	m_model = new Models();
 	m_model->Init("..\\Data\\Model\\Bila.nfg", NFG);
+	m_Shaders = new Shaders();
+	m_Shaders->Init("..\\Data\\Shaders\\TextureShader.vs", "..\\Data\\Shaders\\TextureShader.fs");
+	m_texture = new Texture();
+	m_texture->Init("..\\Data\\Textures\\Rock.tga", GL_CLAMP_TO_EDGE, GL_LINEAR_MIPMAP_LINEAR);
 
-	m_Sprite3D1 = new Sprite3D(m_model, m_Shaders, m_Camera, Vector4(0.0,1.0, 1.0, 0.5));
+	m_Sprite3D1 = new Sprite3D(m_model, m_Shaders, m_Camera, m_texture);
+	m_Sprite3D1->Init();
+	m_Sprite3D1->Set3DScale(Vector3(0.05, 0.05, 0.05));
 	/*m_Sprite3D1->SetShaders(m_Shaders);
 	m_Sprite3D1->SetModels(m_model);
 	m_Sprite3D1->SetColor(Vector4(0.0, 1.0, 1.0, 0.5));
 	m_Sprite3D1->SetCamera(m_Camera);*/
-	m_Sprite3D1->Init();
-	m_Sprite3D1->Set3DScale(Vector3(0.1, 0.1, 0.1));
 }
 
 void Application::Update(GLfloat deltaTime)
 {
 	//update
+	m_Plan->Update(deltaTime);
 	m_Sprite3D->Update(deltaTime);
 	m_Sprite2D->Update(deltaTime);
 	m_Sprite3D1->Update(deltaTime);
@@ -87,6 +103,7 @@ void Application::Render()
 	//Draw
 	
 	//3D
+	m_Plan->Draw();
 	m_Sprite3D->Draw();
 	m_Sprite3D1->Draw();
 	

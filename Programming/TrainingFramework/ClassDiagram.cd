@@ -10,14 +10,14 @@
   <Class Name="BaseObject">
     <Position X="4.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EEQEASAACQRAAgAACCCqRAAAACACIAQAEAACQAAABAA=</HashCode>
+      <HashCode>EEQEACAACYAAAgAACCCqRAAAACAAIAQAAAgCQAgABAA=</HashCode>
       <FileName>src\GameObject\BaseObject.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sprite2D">
-    <Position X="6.75" Y="8.25" Width="1.5" />
+    <Position X="8.25" Y="8.5" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAQAAAgAIwIAMAgAAAAAAIAAAQAACAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAgAIwIAMAgAAAAABIAAAQAACAAAAAAA=</HashCode>
       <FileName>src\GameObject\Sprite2D.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -29,9 +29,9 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Sprite3D">
-    <Position X="2.25" Y="7.75" Width="1.75" />
+    <Position X="2.25" Y="7.75" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAQAAAwAAIAAAAgAAAAAAAAAAAAgCAAgAAAA=</HashCode>
+      <HashCode>AAQAAAAAAQRAAwAAIAAAAAAAAAADIAAAEAACAAAAAAA=</HashCode>
       <FileName>src\GameObject\Sprite3D.h</FileName>
     </TypeIdentifier>
   </Class>

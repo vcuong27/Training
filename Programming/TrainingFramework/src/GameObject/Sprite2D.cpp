@@ -25,10 +25,10 @@ Sprite2D::Sprite2D(Models * model, Shaders * shader, Texture * texture)
 	m_pCamera = nullptr;
 	m_pTexture = texture;
 
-	m_Vec3Scale = Vector3(0.5, 0.15, 1);
-	m_Vec3Position = Vector3(-1, -1, 0);
-	//m_iHeight = screenHeight / 15;
-	//m_iWidth = screenWidth / 4;
+	m_Vec3Position = Vector3(0, 0, 0);
+	m_iHeight = 50;
+	m_iWidth = 100;
+	m_Vec3Scale = Vector3((float)m_iWidth/screenWidth, (float)m_iHeight/screenHeight, 1);
 }
 
 Sprite2D::Sprite2D(Models * model, Shaders * shader, Vector4 color)
@@ -40,10 +40,10 @@ Sprite2D::Sprite2D(Models * model, Shaders * shader, Vector4 color)
 	m_pTexture = nullptr;
 	m_Color = color;
 
-	m_Vec3Scale = Vector3(0.5, 0.15, 1);
-	m_Vec3Position = Vector3(-1, -1, 0);
-	//m_iHeight = screenHeight / 15;
-	//m_iWidth = screenWidth / 4;
+	m_Vec3Position = Vector3(0, 0, 0);
+	m_iHeight = 50;
+	m_iWidth = 100;
+	m_Vec3Scale = Vector3((float)m_iWidth / screenWidth, (float)m_iHeight / screenHeight, 1);
 }
 
 Sprite2D::~Sprite2D()
@@ -135,13 +135,13 @@ std::string Sprite2D::GetText()
 	return m_Text;
 }
 
-void Sprite2D::Set2DPosition(GLfloat x, GLfloat y)
+void Sprite2D::Set2DPosition(GLfloat width, GLfloat height)
 {
-	m_Vec2DPos.x = x;
-	m_Vec2DPos.y = y;
+	m_Vec2DPos.x = width;
+	m_Vec2DPos.y = height;
 
-	float xx = (2.0*x) / screenWidth - 1.0;
-	float yy = 1.0 - (2.0*y) / screenHeight;
+	float xx = (2.0 * m_Vec2DPos.x) / screenWidth - 1.0;
+	float yy = 1.0 - (2.0*m_Vec2DPos.y) / screenHeight;
 	m_Vec3Position = Vector3(xx, yy, 1.0);
 
 	CaculateWorldMatrix();
@@ -150,6 +150,11 @@ void Sprite2D::Set2DPosition(GLfloat x, GLfloat y)
 void Sprite2D::Set2DPosition(Vector2 pos)
 {
 	m_Vec2DPos = pos;
+
+	float xx = (2.0 * m_Vec2DPos.x) / screenWidth - 1.0;
+	float yy = 1.0 - (2.0*m_Vec2DPos.y) / screenHeight;
+	m_Vec3Position = Vector3(xx, yy, 1.0);
+
 	CaculateWorldMatrix();
 }
 
@@ -161,6 +166,8 @@ Vector2 Sprite2D::Get2DPosition()
 
 void Sprite2D::SetSize(GLint width, GLint height)
 {
-	//m_iWidth = width;
-	//m_iHeight = height;
+	m_iWidth = width;
+	m_iHeight = height;
+	m_Vec3Scale = Vector3((float)m_iWidth / screenWidth, (float)m_iHeight / screenHeight, 1);
+	CaculateWorldMatrix();
 }
