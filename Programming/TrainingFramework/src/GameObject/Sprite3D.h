@@ -2,23 +2,27 @@
 #include "baseobject.h"
 
 
-class Sprite3D :
-	public BaseObject
+class Sprite3D : public BaseObject
 {
-
 private:
-	Matrix		m_WorldMat;
-	Vector4		m_Color;
-	Vector2		m_Vec2DPos;
+	void			CaculateWorldMatrix();
 
 public:
-	Sprite3D();
+	Sprite3D(Models* model, Shaders* shader, Camera* camera, Texture * texture);
+	Sprite3D(Models* model, Shaders* shader, Camera* camera, Vector4 color);
 	~Sprite3D();
 
-	void		Init();
-	void		Draw();
-	void		Update(GLfloat deltatime);
+	void		Init() override;
+	void		Draw() override;
+	void		Update(GLfloat deltatime) override;
 
-	void		SetColor(Vector4 color);
+
+	void			Set3DPosition(Vector3 pos);
+	Vector3			Get3DPosition();
+	void			Set3DScale(Vector3 sca);
+	Vector3			Get3DScale();
+	void			Set3DRotation(Vector3 ros);
+	Vector3			Get3DRotation();
+
 };
 

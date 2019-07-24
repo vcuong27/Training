@@ -17,14 +17,30 @@ protected:
 	Vector3			m_Vec3Position;
 	Vector3			m_Vec3Scale;
 	Vector3			m_Vec3Rotation;
+	Vector4			m_Color;
+
+	Matrix			m_WorldMat;
 
 	Models			*m_pModel;
 	Shaders			*m_pShader;
 	Camera			*m_pCamera;
-	Texture			*m_texture;
+	Texture			*m_pTexture;
 public:
-	BaseObject();
-	virtual ~BaseObject();
+	BaseObject() {
+		m_Id = 0;
+		m_Name = "name";
+
+		m_Vec3Position = Vector3(0, 0, 0);
+		m_Vec3Scale = Vector3(1, 1, 1);
+		m_Vec3Rotation = Vector3(0, 0, 0);
+		m_Color = Vector4(0.5, 0.5, 0.5, 1.0);
+
+		m_pModel = nullptr;
+		m_pShader = nullptr;
+		m_pCamera = nullptr;
+		m_pTexture = nullptr;
+	}
+	virtual ~BaseObject() {}
 
 	virtual void Init() = 0;
 	virtual void Draw() = 0;
@@ -37,14 +53,8 @@ public:
 	void			SetName(std::string name) { m_Name = name; }
 	std::string		GetName() { return	m_Name; }
 
-	void			Set3DPosition(Vector3 pos) { m_Vec3Position = pos; }
-	Vector3			Get3DPosition() { return m_Vec3Position; }
 
-	void			Set3DScale(Vector3 sca) { m_Vec3Scale = sca; }
-	Vector3			Get3DScale() { return m_Vec3Scale; }
-
-	void			Set3DRotation(Vector3 ros) { m_Vec3Rotation = ros; }
-	Vector3			Get3DRotation() { return m_Vec3Rotation; }
+	void			SetColor(Vector4 color) { m_Color = color; }
 
 	void			SetCamera(Camera *cam) { m_pCamera = cam; }
 
@@ -52,7 +62,7 @@ public:
 
 	void			SetShaders(Shaders* sha) { m_pShader = sha; }
 
-	void			SetTexture(Texture* tex) { m_texture = tex; }
+	void			SetTexture(Texture* tex) { m_pTexture = tex; }
 
 };
 

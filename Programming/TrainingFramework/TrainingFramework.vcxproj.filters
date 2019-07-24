@@ -21,9 +21,6 @@
     <ClCompile Include="src\TrainingFramework.cpp">
       <Filter>TrainingFramework\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\GameObject\BaseObject.cpp">
-      <Filter>TrainingFramework\src\GameObject</Filter>
-    </ClCompile>
     <ClCompile Include="src\GameObject\Sprite2D.cpp">
       <Filter>TrainingFramework\src\GameObject</Filter>
     </ClCompile>
@@ -77,5 +74,8 @@
     <ClInclude Include="src\GameObject\Vertex.h">
       <Filter>TrainingFramework\src\GameObject</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>
