@@ -57,6 +57,8 @@ void Sprite3D::Draw()
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_pModel->GetIndiceObject());
 	GLuint iTempShaderVaribleGLID = -1;
 	Matrix matrixWVP;
+	glEnable(GL_CULL_FACE);
+	glEnable(GL_DEPTH_TEST);
 
 	// All object
 	matrixWVP = m_WorldMat* m_pCamera->GetLookAtCamera();
@@ -110,6 +112,8 @@ void Sprite3D::Draw()
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	glBindTexture(GL_TEXTURE_2D, 0);
+	glDisable(GL_CULL_FACE);
+	glDisable(GL_DEPTH_TEST);
 }
 
 void Sprite3D::Update(GLfloat deltatime)
