@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{c5e40a35-55f9-43e6-bc5a-9c8bf458153e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\utils">
+      <UniqueIdentifier>{c80268bb-80ac-4e6f-8492-40b53e46ac2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{00d3f592-633d-4643-af58-1b86382c5ba3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\utils\FileUtils.cpp">
+      <Filter>src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GLProgram.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Math.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Model.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Button.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Texture.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Text.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sprite.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Config.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SceneNode.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Font.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SpriteSheet.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Animation.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rect.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\utils\FileUtils.h">
+      <Filter>src\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLProgram.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Math.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Model.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Vertex.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Button.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Texture.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\IGUIElement.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Text.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sprite.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Config.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GraphicHeaders.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SceneNode.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Keycodes.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SEvent.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Font.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SpriteSheet.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Animation.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rect.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

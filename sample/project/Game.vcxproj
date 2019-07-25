@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{888BB9AE-44BF-4FF7-A8BA-31213936CFE0}</ProjectGuid>
+    <RootNamespace>Game</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)\..\build\</OutDir>
+    <IntDir>objs\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IntDir>objs\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)\..\build\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\libraries\freetype\include;$(SolutionDir)\..\src;$(SolutionDir)\..\libraries\GraphicEngine\libs\Nvidia;$(SolutionDir)\..\src\GameManagers;$(SolutionDir)\..\libraries\GraphicEngine\include;$(SolutionDir)\..\src\game;$(SolutionDir)\..\libraries\GraphicEngine\libs\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>libEGL.lib;libGLESv2.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\build;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Link>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\build;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libEGL.lib;libGLESv2.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+    <ClCompile>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <ClCompile>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\libraries\freetype\include;$(SolutionDir)\..\src;$(SolutionDir)\..\libraries\GraphicEngine\libs\Nvidia;$(SolutionDir)\..\src\GameManagers;$(SolutionDir)\..\libraries\GraphicEngine\include;$(SolutionDir)\..\src\game;$(SolutionDir)\..\libraries\GraphicEngine\libs\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\core\Singleton.h" />
+    <ClInclude Include="..\src\GameManagers\CollisionManagers.h" />
+    <ClInclude Include="..\src\GameManagers\EffectManagers.h" />
+    <ClInclude Include="..\src\GameManagers\ResourceManagers.h" />
+    <ClInclude Include="..\src\GameManagers\SceneManagers.h" />
+    <ClInclude Include="..\src\GameManagers\SoundManagers.h" />
+    <ClInclude Include="..\src\GameStates\GameStatebase.h" />
+    <ClInclude Include="..\src\GameStates\GameStateMachine.h" />
+    <ClInclude Include="..\src\GameStates\GSIntro.h" />
+    <ClInclude Include="..\src\GameStates\GSMenu.h" />
+    <ClInclude Include="..\src\GameStates\GSPlay.h" />
+    <ClInclude Include="..\src\game\GamePlay.h" />
+    <ClInclude Include="..\src\game\objects\Bullet.h" />
+    <ClInclude Include="..\src\game\objects\Cupid.h" />
+    <ClInclude Include="..\src\game\objects\Object.h" />
+    <ClInclude Include="..\src\game\objects\Person.h" />
+    <ClInclude Include="..\src\Interfaces\Menus\MenuMgr.h" />
+    <ClInclude Include="..\src\Interfaces\Menus\Menu_Base.h" />
+    <ClInclude Include="..\src\Interfaces\Menus\Menu_Ingame.h" />
+    <ClInclude Include="..\src\Interfaces\Menus\Menu_MainMenu.h" />
+    <ClInclude Include="..\src\Interfaces\Menus\Menu_Options.h" />
+    <ClInclude Include="..\src\Interfaces\Menus\Menu_Pause.h" />
+    <ClInclude Include="..\src\Interfaces\Menus\Menu_Result.h" />
+    <ClInclude Include="..\src\Interfaces\Menus\Menu_Shop.h" />
+    <ClInclude Include="..\src\Interfaces\Menus\Menu_Social.h" />
+    <ClInclude Include="..\src\win32\esUtil.h" />
+    <ClInclude Include="..\src\win32\esUtil_win.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\GameManagers\CollisionManagers.cpp" />
+    <ClCompile Include="..\src\GameManagers\EffectManagers.cpp" />
+    <ClCompile Include="..\src\GameManagers\ResourceManagers.cpp" />
+    <ClCompile Include="..\src\GameManagers\SceneManagers.cpp" />
+    <ClCompile Include="..\src\GameManagers\SoundManagers.cpp" />
+    <ClCompile Include="..\src\GameStates\GameStatebase.cpp" />
+    <ClCompile Include="..\src\GameStates\GameStateMachine.cpp" />
+    <ClCompile Include="..\src\GameStates\GSIntro.cpp" />
+    <ClCompile Include="..\src\GameStates\GSMenu.cpp" />
+    <ClCompile Include="..\src\GameStates\GSPlay.cpp" />
+    <ClCompile Include="..\src\game\GamePlay.cpp" />
+    <ClCompile Include="..\src\game\objects\Bullet.cpp" />
+    <ClCompile Include="..\src\game\objects\Cupid.cpp" />
+    <ClCompile Include="..\src\game\objects\Object.cpp" />
+    <ClCompile Include="..\src\game\objects\Person.cpp" />
+    <ClCompile Include="..\src\Interfaces\Menus\MenuMgr.cpp" />
+    <ClCompile Include="..\src\Interfaces\Menus\Menu_Base.cpp" />
+    <ClCompile Include="..\src\Interfaces\Menus\Menu_Ingame.cpp" />
+    <ClCompile Include="..\src\Interfaces\Menus\Menu_MainMenu.cpp" />
+    <ClCompile Include="..\src\Interfaces\Menus\Menu_Options.cpp" />
+    <ClCompile Include="..\src\Interfaces\Menus\Menu_Pause.cpp" />
+    <ClCompile Include="..\src\Interfaces\Menus\Menu_Result.cpp" />
+    <ClCompile Include="..\src\Interfaces\Menus\Menu_Shop.cpp" />
+    <ClCompile Include="..\src\Interfaces\Menus\Menu_Social.cpp" />
+    <ClCompile Include="..\src\win32\Application.cpp" />
+    <ClCompile Include="..\src\win32\esUtil.cpp" />
+    <ClCompile Include="..\src\win32\esUtil_win.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\libraries\GraphicEngine\GraphicEngine.vcxproj">
+      <Project>{327442a1-945f-4bec-9da9-b8dbbaa9f78b}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

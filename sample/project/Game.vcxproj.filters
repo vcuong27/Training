@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{ef3a5fc9-a151-4553-9622-20c2e5eab96e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\win32">
+      <UniqueIdentifier>{360367b1-4e2a-40e2-8157-174bf670d651}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameStates">
+      <UniqueIdentifier>{d9e4008d-c856-4726-9382-e8feae8ddbdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\core">
+      <UniqueIdentifier>{3a39a88c-7111-49d8-84b3-51867a1b0cbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameManagers">
+      <UniqueIdentifier>{1dd8c32a-d4c7-4764-936f-cf0a7bc64d69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game">
+      <UniqueIdentifier>{31b0a051-200b-4158-8aac-3893f43e609b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\objects">
+      <UniqueIdentifier>{ca25cade-fc3c-4fca-b640-4a32bfba703c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Interfaces">
+      <UniqueIdentifier>{d5bdb57d-17da-4b5c-94c9-372e25871937}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Interfaces\Menus">
+      <UniqueIdentifier>{ea2622f2-2cd9-4c02-9037-31f3a52cff6e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\win32\esUtil.h">
+      <Filter>src\win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\win32\esUtil_win.h">
+      <Filter>src\win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\core\Singleton.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameStates\GameStatebase.h">
+      <Filter>src\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameStates\GameStateMachine.h">
+      <Filter>src\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameStates\GSIntro.h">
+      <Filter>src\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameStates\GSMenu.h">
+      <Filter>src\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameStates\GSPlay.h">
+      <Filter>src\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameManagers\EffectManagers.h">
+      <Filter>src\GameManagers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameManagers\ResourceManagers.h">
+      <Filter>src\GameManagers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameManagers\SceneManagers.h">
+      <Filter>src\GameManagers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameManagers\SoundManagers.h">
+      <Filter>src\GameManagers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\GamePlay.h">
+      <Filter>src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\objects\Bullet.h">
+      <Filter>src\game\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\objects\Object.h">
+      <Filter>src\game\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\objects\Cupid.h">
+      <Filter>src\game\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Interfaces\Menus\Menu_Base.h">
+      <Filter>src\Interfaces\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Interfaces\Menus\MenuMgr.h">
+      <Filter>src\Interfaces\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Interfaces\Menus\Menu_MainMenu.h">
+      <Filter>src\Interfaces\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Interfaces\Menus\Menu_Ingame.h">
+      <Filter>src\Interfaces\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Interfaces\Menus\Menu_Options.h">
+      <Filter>src\Interfaces\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Interfaces\Menus\Menu_Pause.h">
+      <Filter>src\Interfaces\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Interfaces\Menus\Menu_Result.h">
+      <Filter>src\Interfaces\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Interfaces\Menus\Menu_Shop.h">
+      <Filter>src\Interfaces\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Interfaces\Menus\Menu_Social.h">
+      <Filter>src\Interfaces\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\objects\Person.h">
+      <Filter>src\game\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameManagers\CollisionManagers.h">
+      <Filter>src\GameManagers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\win32\Application.cpp">
+      <Filter>src\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\win32\esUtil.cpp">
+      <Filter>src\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\win32\esUtil_win.cpp">
+      <Filter>src\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameStates\GameStatebase.cpp">
+      <Filter>src\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameStates\GameStateMachine.cpp">
+      <Filter>src\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameStates\GSIntro.cpp">
+      <Filter>src\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameStates\GSMenu.cpp">
+      <Filter>src\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameStates\GSPlay.cpp">
+      <Filter>src\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameManagers\EffectManagers.cpp">
+      <Filter>src\GameManagers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameManagers\ResourceManagers.cpp">
+      <Filter>src\GameManagers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameManagers\SceneManagers.cpp">
+      <Filter>src\GameManagers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameManagers\SoundManagers.cpp">
+      <Filter>src\GameManagers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\GamePlay.cpp">
+      <Filter>src\game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\objects\Bullet.cpp">
+      <Filter>src\game\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\objects\Object.cpp">
+      <Filter>src\game\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\objects\Cupid.cpp">
+      <Filter>src\game\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Interfaces\Menus\Menu_Base.cpp">
+      <Filter>src\Interfaces\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Interfaces\Menus\MenuMgr.cpp">
+      <Filter>src\Interfaces\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Interfaces\Menus\Menu_MainMenu.cpp">
+      <Filter>src\Interfaces\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Interfaces\Menus\Menu_Ingame.cpp">
+      <Filter>src\Interfaces\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Interfaces\Menus\Menu_Options.cpp">
+      <Filter>src\Interfaces\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Interfaces\Menus\Menu_Pause.cpp">
+      <Filter>src\Interfaces\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Interfaces\Menus\Menu_Result.cpp">
+      <Filter>src\Interfaces\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Interfaces\Menus\Menu_Shop.cpp">
+      <Filter>src\Interfaces\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Interfaces\Menus\Menu_Social.cpp">
+      <Filter>src\Interfaces\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\objects\Person.cpp">
+      <Filter>src\game\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameManagers\CollisionManagers.cpp">
+      <Filter>src\GameManagers</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
