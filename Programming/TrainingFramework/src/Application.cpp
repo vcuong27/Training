@@ -3,6 +3,7 @@
 #include "Texture.h"
 #include "Models.h"
 #include "Camera.h"
+#include "Font.h"
 extern GLint screenWidth;
 extern GLint screenHeight;
 
@@ -85,7 +86,13 @@ void Application::Init()
 	m_Sprite3D1 = new Sprite3D(m_model, m_Shaders, m_Camera, m_texture);
 	m_Sprite3D1->Init();
 	m_Sprite3D1->Set3DScale(Vector3(0.05, 0.05, 0.05));
-	
+
+
+	//text
+	m_Shaders = new Shaders();
+	m_Shaders->Init("..\\Data\\Shaders\\TextShader.vs", "..\\Data\\Shaders\\TextShader.fs");
+	Font* font = Font::createWithFiles("..\\Data\\fonts\\arial.ttf");
+	m_text = new Text(m_Shaders,font, "Sample Text", EColor::RED, Vector2(10,50),1.0);
 }
 
 void Application::Update(GLfloat deltaTime)
@@ -103,12 +110,13 @@ void Application::Render()
 	//Draw
 	
 	//3D
-	m_Plane->Draw();
+	/*m_Plane->Draw();
 	m_Sprite3D->Draw();
-	m_Sprite3D1->Draw();
+	m_Sprite3D1->Draw();*/
 	
 	//2D
-	m_Sprite2D->Draw();
+	//m_Sprite2D->Draw();
+	m_text->Draw();
 }
 
 void Application::HandleKeyEvent(unsigned char key, bool bIsPresseded)
