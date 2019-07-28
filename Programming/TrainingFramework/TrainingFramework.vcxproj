@@ -269,6 +269,11 @@
     <ClCompile Include="src\GameObject\Shaders.cpp" />
     <ClCompile Include="src\GameObject\Text.cpp" />
     <ClCompile Include="src\GameObject\Texture.cpp" />
+    <ClCompile Include="src\GameStates\GameStatebase.cpp" />
+    <ClCompile Include="src\GameStates\GameStateMachine.cpp" />
+    <ClCompile Include="src\GameStates\GSIntro.cpp" />
+    <ClCompile Include="src\GameStates\GSMenu.cpp" />
+    <ClCompile Include="src\GameStates\GSPlay.cpp" />
     <ClCompile Include="src\TrainingFramework.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -285,6 +290,11 @@
     <ClInclude Include="src\GameObject\Text.h" />
     <ClInclude Include="src\GameObject\Texture.h" />
     <ClInclude Include="src\GameObject\Vertex.h" />
+    <ClInclude Include="src\GameStates\GameStatebase.h" />
+    <ClInclude Include="src\GameStates\GameStateMachine.h" />
+    <ClInclude Include="src\GameStates\GSIntro.h" />
+    <ClInclude Include="src\GameStates\GSMenu.h" />
+    <ClInclude Include="src\GameStates\GSPlay.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

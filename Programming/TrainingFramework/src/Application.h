@@ -3,10 +3,6 @@
 #include "GameConfig.h"
 
 
-#include "Sprite2D.h"
-#include "Sprite3D.h"
-#include "Text.h"
-
 class Application : public CSingleton<Application>
 {
 public:
@@ -21,12 +17,6 @@ public:
 
 private:
 	
-
-	Sprite2D *	m_Sprite2D;
-	Sprite3D *	m_Plane;
-	Sprite3D *	m_Sprite3D1;
-	Sprite3D *	m_Sprite3D;
-	Text* m_text;
 
 };
 
