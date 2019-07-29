@@ -63,9 +63,9 @@ GLuint Shaders::GetShaderID()
 {
 	return m_iShaderID;
 }
-void Shaders::EnableTest(GLuint GL_TEST)
+void Shaders::EnableTest(GLuint gl_test)
 {
-	//glEnable(GL_TEST);
+	glEnable(gl_test);
 }
 void Shaders::EnableAlpha(){
 	glEnable(GL_BLEND);

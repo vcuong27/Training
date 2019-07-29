@@ -1,6 +1,14 @@
 #pragma once
-#include "Vertex.h"
 #include "GameConfig.h"
+
+struct Vertex
+{
+	Vector3 position;
+	Vector3 normal;
+	Vector3 bitangent;
+	Vector3 tangent;
+	Vector2 uv;
+};
 
 class Models
 {
@@ -15,6 +23,6 @@ public:
 	GLuint		GetVertexObject();
 	GLuint		GetIndiceObject();
 	GLuint		GetNumIndiceObject();
-	void		SetModelId(GLuint);
+	void		SetModelId(GLuint id);
 	GLuint		GetModelId();
 };

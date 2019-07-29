@@ -291,7 +291,6 @@
     <ClInclude Include="src\GameObject\Shaders.h" />
     <ClInclude Include="src\GameObject\Text.h" />
     <ClInclude Include="src\GameObject\Texture.h" />
-    <ClInclude Include="src\GameObject\Vertex.h" />
     <ClInclude Include="src\GameStates\GameStatebase.h" />
     <ClInclude Include="src\GameStates\GameStateMachine.h" />
     <ClInclude Include="src\GameStates\GSIntro.h" />

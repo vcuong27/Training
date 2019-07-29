@@ -60,16 +60,16 @@ std::shared_ptr<Shaders> ResourceManagers::GetShader(const std::string& name)
 		return it->second;
 	}
 
-	std::shared_ptr<Shaders>  m_Shaders;
-	m_Shaders = std::make_shared<Shaders>();
+	std::shared_ptr<Shaders>  shaders;
+	shaders = std::make_shared<Shaders>();
 	std::string vs = m_ShaderPath + name + ".vs";
 	std::string fs = m_ShaderPath + name + ".fs";
 
-	m_Shaders->Init(vs, fs);
+	shaders->Init(vs, fs);
 
-	m_MapShader.insert(std::pair<std::string, std::shared_ptr<Shaders>>(name, m_Shaders));
+	m_MapShader.insert(std::pair<std::string, std::shared_ptr<Shaders>>(name, shaders));
 
-	return m_Shaders;
+	return shaders;
 }
 
 std::shared_ptr<Texture> ResourceManagers::GetTexture(const std::string& name)
@@ -79,11 +79,11 @@ std::shared_ptr<Texture> ResourceManagers::GetTexture(const std::string& name)
 	{
 		return it->second;
 	}
-	std::shared_ptr<Texture> m_texture = std::make_shared<Texture>();
+	std::shared_ptr<Texture> texture = std::make_shared<Texture>();
 	std::string file = m_TexturePath + name + ".tga";
-	m_texture->Init(file.c_str(), GL_CLAMP_TO_EDGE, GL_LINEAR_MIPMAP_LINEAR);
-	m_MapTexture.insert(std::pair<std::string, std::shared_ptr<Texture>>(name, m_texture));
-	return m_texture;
+	texture->Init(file.c_str(), GL_CLAMP_TO_EDGE, GL_LINEAR_MIPMAP_LINEAR);
+	m_MapTexture.insert(std::pair<std::string, std::shared_ptr<Texture>>(name, texture));
+	return texture;
 }
 
 std::shared_ptr<Models> ResourceManagers::GetModel(const std::string& name)
