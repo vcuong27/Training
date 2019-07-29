@@ -1,11 +1,10 @@
 #include "targetver.h"
-#include "Vertex.h"
 #include "Shaders.h"
 #include "Application.h"
 #include "utilities.h" 
 
-GLint screenWidth = 640;
-GLint screenHeight = 720;
+GLint screenWidth = 480;
+GLint screenHeight = 800;
 
 
 GLint Init(ESContext* esContext)

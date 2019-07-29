@@ -8,7 +8,6 @@
 #include "Sprite2D.h"
 #include "Sprite3D.h"
 #include "Text.h"
-#include "GameManager/ResourceManagers.h"
 
 extern int screenWidth; //need get on Graphic engine
 extern int screenHeight; //need get on Graphic engine
@@ -84,8 +83,8 @@ void GSPlay::Init()
 	m_Shaders = std::make_shared< Shaders>();
 	m_Shaders->Init("..\\Data\\Shaders\\TextShader.vs", "..\\Data\\Shaders\\TextShader.fs");
 	std::shared_ptr<Font> font = std::make_shared<Font>("..\\Data\\fonts\\arial.ttf");
-	m_text = std::make_shared< Text>(m_Shaders, font, "Sample Text 1", TEXT_COLOR::RED, Vector2(100, 150), 1.0);
-
+	m_text = std::make_shared< Text>(m_Shaders, font, "Sample Text 1", TEXT_COLOR::RED, 1.0);
+	m_text->Set2DPosition(Vector2(100, 150));
 }
 
 void GSPlay::Exit()

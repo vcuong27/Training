@@ -7,11 +7,19 @@ extern GLint screenWidth;
 extern GLint screenHeight;
 
 
+void Text::CaculateWorldMatrix()
+{
+	Matrix m_Sc, m_T;
+	m_Sc.SetScale(m_Vec3Scale);
+	m_T.SetTranslation(m_Vec3Position);
+	m_WorldMat = m_Sc * m_T;
+}
 
-Text::Text(std::shared_ptr<Shaders> sha, std::shared_ptr<Font> font, std::string text, TEXT_COLOR color, Vector2 position, float size)
+
+Text::Text(std::shared_ptr<Shaders> sha, std::shared_ptr<Font> font, std::string text, TEXT_COLOR color, float size)
 {
 	m_Vec3Position = Vector3(0, 0, 0);
-	m_Vec2DPos = position;
+	m_Vec2DPos = Vector2(0, 0);
 
 	float xx = (2.0 * m_Vec2DPos.x) / screenWidth - 1.0;
 	float yy = 1.0 - (2.0 * m_Vec2DPos.y) / screenHeight;
@@ -153,4 +161,27 @@ Vector4 Text::EnumToVector(TEXT_COLOR color)
 		break;
 	}
 	return vecColor;
+}
+
+void Text::Set2DPosition(GLfloat width, GLfloat height)
+{
+	m_Vec2DPos.x = width;
+	m_Vec2DPos.y = height;
+
+	float xx = (2.0 * m_Vec2DPos.x) / screenWidth - 1.0;
+	float yy = 1.0 - (2.0 * m_Vec2DPos.y) / screenHeight;
+	m_Vec3Position = Vector3(xx, yy, 1.0);
+
+	CaculateWorldMatrix();
+}
+
+void Text::Set2DPosition(Vector2 pos)
+{
+	m_Vec2DPos = pos;
+
+	float xx = (2.0 * m_Vec2DPos.x) / screenWidth - 1.0;
+	float yy = 1.0 - (2.0 * m_Vec2DPos.y) / screenHeight;
+	m_Vec3Position = Vector3(xx, yy, 1.0);
+
+	CaculateWorldMatrix();
 }

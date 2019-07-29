@@ -6,6 +6,10 @@
 #include "GameObject/Texture.h"
 #include "GameObject/Models.h"
 #include "GameObject/Font.h"
+#include "GameObject/Camera.h"
+#include "GameObject/Sprite2D.h"
+#include "GameObject/Sprite3D.h"
+#include "GameObject/Text.h"
 
 class ResourceManagers : public CSingleton<ResourceManagers>
 {

@@ -66,6 +66,9 @@
     <ClCompile Include="src\GameManager\ResourceManagers.cpp">
       <Filter>TrainingFramework\src\GameManager</Filter>
     </ClCompile>
+    <ClCompile Include="src\GameObject\GameButton.cpp">
+      <Filter>TrainingFramework\src\GameObject</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Application.h">
@@ -121,6 +124,9 @@
     </ClInclude>
     <ClInclude Include="src\GameManager\ResourceManagers.h">
       <Filter>TrainingFramework\src\GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameObject\GameButton.h">
+      <Filter>TrainingFramework\src\GameObject</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
