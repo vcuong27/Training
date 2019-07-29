@@ -8,21 +8,21 @@
 
 #include "GameStatebase.h"
 
-GameStateBase* GameStateBase::CreateState(StateTypes stt)
+std::shared_ptr<GameStateBase> GameStateBase::CreateState(StateTypes stt)
 {
-	GameStateBase * gs = 0;
+	std::shared_ptr<GameStateBase> gs = nullptr;
 	switch (stt)
 	{
 	case STATE_INVALID:
 		break;
 	case STATE_Intro:
-		gs = new GSIntro();
+		gs = std::make_shared<GSIntro>();
 		break;
 	case STATE_Menu:
-		gs = new GSMenu();
+		gs = std::make_shared<GSMenu>();
 		break;
 	case STATE_Play:
-		gs = new GSPlay();
+		gs = std::make_shared<GSPlay>();
 		break;
 	default:
 		break;

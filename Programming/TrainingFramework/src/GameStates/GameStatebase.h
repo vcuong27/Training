@@ -19,12 +19,12 @@ public:
 	virtual void HandleTouchEvents(int x, int y, bool bIsPressed) = 0;
 	virtual void Update(float deltaTime ) = 0;
 	virtual void Draw() = 0;
-
+	/*
 	void ChangeState(GameStateMachine* game, GameStateBase* state) {
 		game->ChangeState(state);
-	}
+	}*/
 
-	static GameStateBase* CreateState(StateTypes stt);
+	static std::shared_ptr<GameStateBase> CreateState(StateTypes stt);
 	
 
 };

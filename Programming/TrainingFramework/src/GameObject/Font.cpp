@@ -2,19 +2,10 @@
 #include "GameConfig.h"
 
 
-Font* Font::createWithFiles(const std::string& font)
+
+Font::Font(const std::string& font)
 {
-	auto texture = new Font();
-
-	if (texture && texture->initWithFiles(font))
-	{
-		return texture;
-	}
-
-	delete texture;
-	texture = 0;
-
-	return nullptr;
+	initWithFiles(font);
 }
 
 bool Font::initWithFiles(const std::string& font)

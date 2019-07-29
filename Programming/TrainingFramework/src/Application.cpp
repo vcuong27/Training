@@ -5,12 +5,12 @@ extern GLint screenWidth;
 extern GLint screenHeight;
 
 
-Application::Application(void)
+Application::Application()
 {
 }
 
 
-Application::~Application(void)
+Application::~Application()
 {
 }
 
@@ -18,7 +18,7 @@ Application::~Application(void)
 void Application::Init()
 {
 	glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
-	GameStateMachine::GetInstance()->PushState(StateTypes::STATE_Play);
+	GameStateMachine::GetInstance()->PushState(StateTypes::STATE_Intro);
 
 }
 

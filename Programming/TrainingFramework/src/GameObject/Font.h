@@ -9,7 +9,7 @@ class Font
 {
 
 public:
-	static	Font* createWithFiles(const std::string& font);
+	Font(const std::string& font);
 	bool		initWithFiles(const std::string& font);
 	GLuint		getTextFontAdd();
 	GLuint		getArrBuffer();

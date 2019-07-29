@@ -18,20 +18,19 @@ GameStateMachine::~GameStateMachine()
 void GameStateMachine::Cleanup()
 {
 	// cleanup the all states
-	while (!states.empty()) {
-		states.back()->Exit();
-		delete states.back();
-		states.pop_back();
+	while (!m_StatesStack.empty()) {
+		m_StatesStack.back()->Exit();
+		m_StatesStack.pop_back();
 	}
 }
 
 void GameStateMachine::ChangeState(StateTypes stt)
 {
-	GameStateBase* gstb = GameStateBase::CreateState(stt);
+	std::shared_ptr<GameStateBase> gstb = GameStateBase::CreateState(stt);
 	ChangeState(gstb);
 }
 
-void GameStateMachine::ChangeState(GameStateBase* state)
+void GameStateMachine::ChangeState(std::shared_ptr<GameStateBase> state)
 {
 	m_pNextState = state;
 }
@@ -39,10 +38,10 @@ void GameStateMachine::ChangeState(GameStateBase* state)
 
 void GameStateMachine::PushState(StateTypes stt)
 {
-	GameStateBase* state = GameStateBase::CreateState(stt);
+	std::shared_ptr<GameStateBase> state = GameStateBase::CreateState(stt);
 	// pause current state
-	if (!states.empty()) {
-		states.back()->Pause();
+	if (!m_StatesStack.empty()) {
+		m_StatesStack.back()->Pause();
 	}
 
 	// store and init the new state
@@ -54,14 +53,14 @@ void GameStateMachine::PushState(StateTypes stt)
 void GameStateMachine::PopState()
 {
 	// cleanup the current state
-	if (!states.empty()) {
-		states.back()->Exit();
-		states.pop_back();
+	if (!m_StatesStack.empty()) {
+		m_StatesStack.back()->Exit();
+		m_StatesStack.pop_back();
 	}
 
 	// resume previous state
-	if (!states.empty()) {
-		states.back()->Resume();
+	if (!m_StatesStack.empty()) {
+		m_StatesStack.back()->Resume();
 	}
 }
 
@@ -70,15 +69,15 @@ void  GameStateMachine::PerformStateChange()
 	if (m_pNextState != 0)
 	{
 		// cleanup the current state
-		if (!states.empty()) {
-			states.back()->Exit();
+		if (!m_StatesStack.empty()) {
+			m_StatesStack.back()->Exit();
 			//delete states.back();
-			states.pop_back();
+			//states.pop_back();
 		}
 
 		// store and init the new state
-		states.push_back(m_pNextState);
-		states.back()->Init();
+		m_StatesStack.push_back(m_pNextState);
+		m_StatesStack.back()->Init();
 		m_pActiveState = m_pNextState;
 	}
 

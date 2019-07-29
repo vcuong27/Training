@@ -1,7 +1,7 @@
 #pragma once
 #include "BaseObject.h"
 
-enum class EColor {
+enum class TEXT_COLOR {
 	WHILE = 0,
 	RED,
 	GREEN,
@@ -17,7 +17,7 @@ class Font;
 class Text : public BaseObject
 {
 public:
-	Text(Shaders* sha, Font* font, std::string text, EColor color, Vector2 position, float size);
+	Text(std::shared_ptr<Shaders> sha, std::shared_ptr<Font> font, std::string text, TEXT_COLOR color, Vector2 position, float size);
 	~Text();
 
 	void		Init() override;
@@ -25,17 +25,17 @@ public:
 	void		Update(GLfloat deltatime) override;
 
 
-	void			setFont(Font* font);
+	void			setFont(std::shared_ptr<Font> font);
 	void			setText(std::string text);
 
 private:
 	std::string			m_text;
-	Font* m_font;
+	std::shared_ptr<Font> m_font;
 
 	Vector2			m_Vec2DPos;
 	GLint			m_iHeight;
 	GLint			m_iWidth;
 	Vector2	m_scale;
-	Vector4 EnumToVector(EColor color);
+	Vector4 EnumToVector(TEXT_COLOR color);
 
 };

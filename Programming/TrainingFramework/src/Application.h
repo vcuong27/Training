@@ -6,8 +6,8 @@
 class Application : public CSingleton<Application>
 {
 public:
-	Application(void);
-	~Application(void);
+	Application();
+	~Application();
 	void		Init();
 	void		Update( GLfloat deltaTime);
 	void		Render();

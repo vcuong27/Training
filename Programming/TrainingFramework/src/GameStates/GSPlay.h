@@ -31,10 +31,10 @@ public:
 private:
 
 
-	Sprite2D* m_Sprite2D;
-	Sprite3D* m_Plane;
-	Sprite3D* m_Sprite3D1;
-	Sprite3D* m_Sprite3D;
-	Text* m_text;
+	std::shared_ptr<Sprite2D> m_Sprite2D;
+	std::shared_ptr<Sprite3D> m_Plane;
+	std::shared_ptr<Sprite3D> m_Sprite3D1;
+	std::shared_ptr<Sprite3D> m_Sprite3D;
+	std::shared_ptr<Text> m_text;
 };
 

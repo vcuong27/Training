@@ -38,7 +38,9 @@ void GSIntro::HandleEvents()
 
 void GSIntro::HandleKeyEvents(int key, bool bIsPressed)
 {
-	
+	if (bIsPressed)
+		GameStateMachine::GetInstance()->PushState(StateTypes::STATE_Play);
+
 }
 
 void GSIntro::HandleTouchEvents(int x, int y, bool bIsPressed)

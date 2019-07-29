@@ -7,7 +7,7 @@ class GameStateBase;
 
 enum StateTypes
 {
-	STATE_INVALID	= 0,
+	STATE_INVALID = 0,
 	STATE_Intro,
 	STATE_Menu,
 	STATE_Play,
@@ -25,7 +25,7 @@ public:
 
 	void Cleanup();
 
-	void ChangeState(GameStateBase* state);
+	void ChangeState(std::shared_ptr<GameStateBase> state);
 	void ChangeState(StateTypes stt);
 	void PushState(StateTypes stt);
 	void PopState();
@@ -34,7 +34,7 @@ public:
 	void Quit() { m_running = false; }
 	void PerformStateChange();
 
-	inline GameStateBase*	CurrentState()const
+	inline std::shared_ptr<GameStateBase>	CurrentState()const
 	{
 		return m_pActiveState;
 	}
@@ -46,15 +46,15 @@ public:
 
 	inline bool		HasState()const
 	{
-		return states.size() > 0;
+		return m_StatesStack.size() > 0;
 	}
 
 private:
 
-	std::list<GameStateBase*>	states;
-	GameStateBase*	m_pActiveState;
-	GameStateBase*	m_pNextState;
-	bool m_running;	
+	std::list < std::shared_ptr<GameStateBase>>	m_StatesStack;
+	std::shared_ptr<GameStateBase>	m_pActiveState;
+	std::shared_ptr<GameStateBase>	m_pNextState;
+	bool m_running;
 	bool m_fullscreen;
 };
 

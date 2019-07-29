@@ -8,7 +8,7 @@ extern GLint screenHeight;
 
 
 
-Text::Text(Shaders* sha, Font* font, std::string text, EColor color, Vector2 position, float size)
+Text::Text(std::shared_ptr<Shaders> sha, std::shared_ptr<Font> font, std::string text, TEXT_COLOR color, Vector2 position, float size)
 {
 	m_Vec3Position = Vector3(0, 0, 0);
 	m_Vec2DPos = position;
@@ -110,7 +110,9 @@ void Text::Update(GLfloat deltatime)
 }
 
 
-void Text::setFont(Font* font) {
+
+void Text::setFont(std::shared_ptr<Font> font)
+{
 	m_font = font;
 }
 
@@ -120,30 +122,30 @@ void Text::setText(std::string text) {
 
 
 
-Vector4 Text::EnumToVector(EColor color)
+Vector4 Text::EnumToVector(TEXT_COLOR color)
 {
 	Vector4 vecColor;
 	switch (color)
 	{
-	case EColor::WHILE:
+	case TEXT_COLOR::WHILE:
 		vecColor = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
 		break;
-	case EColor::RED:
+	case TEXT_COLOR::RED:
 		vecColor = Vector4(1.0f, 0.0f, 0.0f, 1.0f);
 		break;
-	case EColor::GREEN:
+	case TEXT_COLOR::GREEN:
 		vecColor = Vector4(0.0f, 1.0f, 0.0f, 1.0f);
 		break;
-	case EColor::BLUE:
+	case TEXT_COLOR::BLUE:
 		vecColor = Vector4(0.0f, 0.0f, 1.0f, 1.0f);
 		break;
-	case EColor::YELLOW:
+	case TEXT_COLOR::YELLOW:
 		vecColor = Vector4(1.0f, 1.0f, 0.0f, 1.0f);
 		break;
-	case EColor::PURPLE:
+	case TEXT_COLOR::PURPLE:
 		vecColor = Vector4(0.5f, 0.0f, 1.0f, 1.0f);
 		break;
-	case EColor::CYAN:
+	case TEXT_COLOR::CYAN:
 		vecColor = Vector4(0.0f, 0.9f, 0.9f, 1.0f);
 		break;
 	default:
