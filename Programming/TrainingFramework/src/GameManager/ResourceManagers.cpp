@@ -21,6 +21,7 @@ ResourceManagers::~ResourceManagers()
 
 void ResourceManagers::AddShader(const std::string& name)
 {
+
 }
 
 void ResourceManagers::AddModel(const std::string& name)
@@ -63,9 +64,8 @@ std::shared_ptr<Shaders> ResourceManagers::GetShader(const std::string& name)
 	m_Shaders = std::make_shared<Shaders>();
 	std::string vs = m_ShaderPath + name + ".vs";
 	std::string fs = m_ShaderPath + name + ".fs";
-	char* vsfile = strdup(vs.c_str());
-	char* fsfile = strdup(fs.c_str());
-	m_Shaders->Init(vsfile, fsfile);
+
+	m_Shaders->Init(vs, fs);
 
 	m_MapShader.insert(std::pair<std::string, std::shared_ptr<Shaders>>(name, m_Shaders));
 
