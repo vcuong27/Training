@@ -1,6 +1,6 @@
 #pragma once
 #include <map>
-#include "GameManager/Singleton.h"
+#include "Helper/Singleton.h"
 #include "GameConfig.h"
 #include "GameObject/Shaders.h"
 #include "GameObject/Texture.h"

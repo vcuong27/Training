@@ -33,17 +33,9 @@
 #define RAW						222 
 #define NFG						333
 
-#ifdef WIN32
-
-#define FSCANF fscanf
-
-#elif ANDROID
-
-#define FSCANF fscanf
-
-#endif
 
 // for debug game
+#ifdef GAME_DEBUG
 
 #ifdef WIN32 
 
@@ -67,8 +59,8 @@
 
 #endif
 
-/*
-#ifndef GAME_DEBUG
+#else
+
 #define LOGI(...) 
 #define LOGE(...) 
 #define LOGV(...) 
@@ -76,7 +68,7 @@
 #define LOGW(...) 
 #define LOGF(...) 
 #endif
-*/
+
 
 // KEY define 
 #ifdef WIN32
