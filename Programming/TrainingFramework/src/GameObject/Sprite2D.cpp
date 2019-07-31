@@ -11,27 +11,34 @@ extern GLint screenHeight;
 
 void Sprite2D::CaculateWorldMatrix()
 {
-	Matrix m_Sc, m_T;
+	Matrix m_Sc, m_Rx, m_Ry, m_Rz, m_T;
 	m_Sc.SetScale(m_Vec3Scale);
+	GLfloat tempX = (GLfloat)(m_Vec3Rotation.x * PI * 2 / MAX_DEGREE);
+	m_Rx.SetRotationX(tempX);
+	GLfloat tempY = (GLfloat)(m_Vec3Rotation.y * PI * 2 / MAX_DEGREE);
+	m_Ry.SetRotationY(tempY);
+	GLfloat tempZ = (GLfloat)(m_Vec3Rotation.z * PI * 2 / MAX_DEGREE);
+	m_Rz.SetRotationZ(tempZ);
 	m_T.SetTranslation(m_Vec3Position);
-	m_WorldMat = m_Sc * m_T;
+
+	m_WorldMat = m_Sc * m_Rz * m_Rx * m_Ry * m_T;
 }
 
-Sprite2D::Sprite2D(std::shared_ptr<Models> model, std::shared_ptr<Shaders> shader, std::shared_ptr<Texture> texture)
+Sprite2D::Sprite2D(std::shared_ptr<Models>& model, std::shared_ptr<Shaders>& shader, std::shared_ptr<Texture>& texture)
 	: BaseObject()
 {
 	m_pModel = model;
 	m_pShader = shader;
 	m_pCamera = nullptr;
 	m_pTexture = texture;
-
 	m_Vec3Position = Vector3(0, 0, 0);
-	m_iHeight = 50;
-	m_iWidth = 100;
-	m_Vec3Scale = Vector3((float)m_iWidth / screenWidth, (float)m_iHeight / screenHeight, 1);
+	Vector2 size = m_pTexture->GetTextureSize();
+	m_Size2D.y = size.y;
+	m_Size2D.x = size.x;
+	m_Vec3Scale = Vector3(m_Size2D.x / screenWidth, m_Size2D.y / screenHeight, 1);
 }
 
-Sprite2D::Sprite2D(std::shared_ptr<Models> model, std::shared_ptr<Shaders> shader, Vector4 color)
+Sprite2D::Sprite2D(std::shared_ptr<Models>& model, std::shared_ptr<Shaders>& shader, Vector4& color)
 	: BaseObject()
 {
 	m_pModel = model;
@@ -41,9 +48,9 @@ Sprite2D::Sprite2D(std::shared_ptr<Models> model, std::shared_ptr<Shaders> shade
 	m_Color = color;
 
 	m_Vec3Position = Vector3(0, 0, 0);
-	m_iHeight = 50;
-	m_iWidth = 100;
-	m_Vec3Scale = Vector3((float)m_iWidth / screenWidth, (float)m_iHeight / screenHeight, 1);
+	m_Size2D.y = 50;
+	m_Size2D.x = 100;
+	m_Vec3Scale = Vector3(m_Size2D.x / screenWidth, m_Size2D.y / screenHeight, 1);
 }
 
 Sprite2D::~Sprite2D()
@@ -158,7 +165,7 @@ void Sprite2D::Set2DPosition(Vector2 pos)
 	CaculateWorldMatrix();
 }
 
-Vector2 Sprite2D::Get2DPosition()
+const Vector2& Sprite2D::Get2DPosition()
 {
 	return m_Vec2DPos;
 }
@@ -166,8 +173,27 @@ Vector2 Sprite2D::Get2DPosition()
 
 void Sprite2D::SetSize(GLint width, GLint height)
 {
-	m_iWidth = width;
-	m_iHeight = height;
-	m_Vec3Scale = Vector3((float)m_iWidth / screenWidth, (float)m_iHeight / screenHeight, 1);
+	m_Size2D.x = width;
+	m_Size2D.y = height;
+	m_Vec3Scale = Vector3(m_Size2D.x / screenWidth, m_Size2D.y / screenHeight, 1);
 	CaculateWorldMatrix();
+}
+
+void Sprite2D::SetSize(Vector2 size)
+{
+	m_Size2D = size;
+	m_Vec3Scale = Vector3(m_Size2D.x / screenWidth, m_Size2D.y / screenHeight, 1);
+	CaculateWorldMatrix();
+}
+
+const Vector2& Sprite2D::GetSize()
+{
+	return m_Size2D;
+}
+
+void Sprite2D::SetRotation(GLfloat angel)
+{
+	m_Vec3Rotation.z = angel;
+	CaculateWorldMatrix();
+
 }

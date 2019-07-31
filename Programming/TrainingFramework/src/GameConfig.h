@@ -29,7 +29,6 @@
 #define VETEX_UV				(char*)0+4*(sizeof(Vector3))
 
 // define type of Models
-#define NONE					111 
 #define RAW						222 
 #define NFG						333
 
