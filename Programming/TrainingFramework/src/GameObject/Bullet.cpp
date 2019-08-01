@@ -18,6 +18,9 @@ void Bullet::Update(GLfloat deltatime)
 	Vector2 pos = Get2DPosition();
 	pos.y = pos.y - m_speed * deltatime;
 	Set2DPosition(pos);
+
+	if (pos.y <= 0)
+		m_active = false;
 }
 
 bool Bullet::IsActive()

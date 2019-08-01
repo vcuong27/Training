@@ -89,6 +89,10 @@ void GSMenu::HandleTouchEvents(int x, int y, bool bIsPressed)
 	}
 }
 
+void GSMenu::HandleMouseEvents(int x, int y)
+{
+}
+
 void GSMenu::Update(float deltaTime)
 {
 	m_BackGround->Update(deltaTime);

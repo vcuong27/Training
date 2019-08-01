@@ -1,5 +1,8 @@
-#include "GSPlay.h"
+#include <sstream>
+#include <iomanip>
+#include <thread>
 
+#include "GSPlay.h"
 #include "Shaders.h"
 #include "Texture.h"
 #include "Models.h"
@@ -7,6 +10,7 @@
 #include "Font.h"
 #include "Text.h"
 #include "Player.h"
+#include "Enermy.h"
 #include "Bullet.h"
 
 extern int screenWidth; //need get on Graphic engine
@@ -79,34 +83,49 @@ void GSPlay::HandleKeyEvents(int key, bool bIsPressed)
 	{
 		m_Player->MoveRight();
 	}
+
+	LOGI("HandleKeyEvents =  %d\n", key);
+}
+
+void GSPlay::HandleMouseEvents(int x, int y)
+{
 }
 
 
 void GSPlay::HandleTouchEvents(int x, int y, bool bIsPressed)
 {
-	
+	CreateRandomEnermy();
 }
 
 void GSPlay::Update(float deltaTime)
 {
-	//player
+
+	//update player
 	m_Player->Update(deltaTime);
 
 	if (m_Player->CanShoot())
 		m_Player->Shoot(m_listBullet);
 
+
+	//update enermies
+	for (auto enermy : m_listEnermy)
+	{
+		if (enermy->IsActive())
+			enermy->Update(deltaTime);
+	}
+
 	//update bullets
 	for (auto bullet : m_listBullet)
 	{
 		if (bullet->IsActive())
-		{
 			bullet->Update(deltaTime);
-			Vector2 pos = bullet->Get2DPosition();
-			if (pos.y <= 20)
-				bullet->SetActive(false);
-		}
 	}
 
+	//update Score
+	std::stringstream stream;
+	stream << std::fixed << std::setprecision(0) << 1.0f / deltaTime;
+	std::string fps ="FPS: " + stream.str();
+	m_score->setText(fps);
 }
 
 void GSPlay::Draw()
@@ -114,41 +133,47 @@ void GSPlay::Draw()
 	//ground
 	m_BackGround->Draw();
 
-
+	for (auto enermy : m_listEnermy)
+		if (enermy->IsActive())
+			enermy->Draw();
 
 	m_Player->Draw();
-	
-	
+
 	for (auto bullet : m_listBullet)
-	{
 		if (bullet->IsActive())
 			bullet->Draw();
-	}
-
-
 
 	//UI
 	m_score->Draw();
 }
 
-void GSPlay::SetNewPostionForBullet()
+void GSPlay::CreateRandomEnermy()
 {
-}
 
-std::shared_ptr<Bullet> GSPlay::GetBullet()
-{
-	for (auto bullet : m_listBullet)
+	int range = screenWidth - 10 + 1;
+	int num = rand() % range + 10;
+
+	Vector2 pos;
+	pos.x = num;
+	pos.y = 10;
+
+	for (auto enermy : m_listEnermy)
 	{
-		if (!bullet->IsActive())
-			return bullet;
+		if (!enermy->IsActive())
+		{
+			enermy->SetActive(true);
+			enermy->Set2DPosition(pos);
+			return;
+		}
+
 	}
 	auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D");
 	auto shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
-	auto texture = ResourceManagers::GetInstance()->GetTexture("bullet");
+	auto texture = ResourceManagers::GetInstance()->GetTexture("Enermy_1");
 
-	std::shared_ptr<Bullet> bullet = std::make_shared<Bullet>(model, shader, texture);
-	bullet->SetSize(20, 20);
-
-	m_listBullet.push_back(bullet);
-	return bullet;
+	std::shared_ptr<Enermy> enermy = std::make_shared<Enermy>(model, shader, texture);
+	enermy->Set2DPosition(pos);
+	enermy->SetSize(40, 40);
+	enermy->SetRotation(180);
+	m_listEnermy.push_back(enermy);
 }

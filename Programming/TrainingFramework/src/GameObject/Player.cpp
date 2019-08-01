@@ -61,7 +61,8 @@ void Player::Shoot(std::vector<std::shared_ptr<Bullet>>& listBullet)
 		if (!bullet->IsActive())
 		{
 			bullet->SetActive(true);
-			break;
+			bullet->Set2DPosition(Get2DPosition());
+			return;
 		}
 
 	}
