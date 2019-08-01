@@ -1,7 +1,5 @@
 #include "Bullet.h"
 
-extern int screenWidth; //need get on Graphic engine
-extern int screenHeight; //need get on Graphic engine
 
 Bullet::Bullet(std::shared_ptr<Models>& model, std::shared_ptr<Shaders>& shader, std::shared_ptr<Texture>& texture)
 	:Sprite2D(model, shader, texture)
@@ -25,7 +23,7 @@ void Bullet::Update(GLfloat deltatime)
 	pos.y = pos.y - m_speed * deltatime;
 	Set2DPosition(pos);
 
-	if (pos.y <= 0 || pos.y > screenHeight)
+	if (pos.y <= 0 || pos.y > Application::screenHeight)
 		m_active = false;
 }
 

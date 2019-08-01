@@ -16,6 +16,8 @@ public:
 	void		HandleMouseEvent(GLint x, GLint y);
 	void		Exit();
 
+	static int screenWidth;
+	static int screenHeight;
 private:
 
 };

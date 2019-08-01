@@ -1,5 +1,6 @@
 #pragma once
 #include "Sprite2D.h"
+#include "Application.h"
 
 enum class BULLET_TYPE
 {

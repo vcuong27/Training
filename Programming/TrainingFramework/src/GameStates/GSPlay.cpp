@@ -13,8 +13,6 @@
 #include "Enermy.h"
 #include "Bullet.h"
 
-extern int screenWidth; //need get on Graphic engine
-extern int screenHeight; //need get on Graphic engine
 int GSPlay::m_score = 0;
 GSPlay::GSPlay()
 {
@@ -37,13 +35,13 @@ void GSPlay::Init()
 	//BackGround
 	auto shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
 	m_BackGround = std::make_shared<Sprite2D>(model, shader, texture);
-	m_BackGround->Set2DPosition(screenWidth / 2, screenHeight / 2);
-	m_BackGround->SetSize(screenWidth, screenHeight);
+	m_BackGround->Set2DPosition(Application::screenWidth / 2, Application::screenHeight / 2);
+	m_BackGround->SetSize(Application::screenWidth, Application::screenHeight);
 
 	texture = ResourceManagers::GetInstance()->GetTexture("Player");
 	m_Player = std::make_shared<Player >(model, shader, texture);
-	m_Player->Set2DPosition(screenWidth / 2, screenHeight - 100);
-	m_Player->MoveToPossition(Vector2(screenWidth / 2, screenHeight - 100));
+	m_Player->Set2DPosition(Application::screenWidth / 2, Application::screenHeight - 100);
+	m_Player->MoveToPossition(Vector2(Application::screenWidth / 2, Application::screenHeight - 100));
 	m_Player->SetSize(50, 50);
 
 	//text game title
@@ -170,7 +168,7 @@ void GSPlay::Draw()
 void GSPlay::CreateRandomEnermy()
 {
 
-	int range = screenWidth - 10 + 1;
+	int range = Application::screenWidth - 10 + 1;
 	int num = rand() % range + 10;
 
 	Vector2 pos;

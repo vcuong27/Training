@@ -1,13 +1,9 @@
 #include "Sprite2D.h"
+#include "Application.h"
 #include "Shaders.h"
 #include "Models.h"
 #include "Camera.h"
 #include "Texture.h"
-
-extern GLint screenWidth;
-extern GLint screenHeight;
-
-
 
 void Sprite2D::CaculateWorldMatrix()
 {
@@ -35,7 +31,7 @@ Sprite2D::Sprite2D(std::shared_ptr<Models>& model, std::shared_ptr<Shaders>& sha
 	Vector2 size = m_pTexture->GetTextureSize();
 	m_Size2D.y = size.y;
 	m_Size2D.x = size.x;
-	m_Vec3Scale = Vector3(m_Size2D.x / screenWidth, m_Size2D.y / screenHeight, 1);
+	m_Vec3Scale = Vector3(m_Size2D.x / Application::screenWidth, m_Size2D.y / Application::screenHeight, 1);
 }
 
 Sprite2D::Sprite2D(std::shared_ptr<Models>& model, std::shared_ptr<Shaders>& shader, Vector4& color)
@@ -50,7 +46,7 @@ Sprite2D::Sprite2D(std::shared_ptr<Models>& model, std::shared_ptr<Shaders>& sha
 	m_Vec3Position = Vector3(0, 0, 0);
 	m_Size2D.y = 50;
 	m_Size2D.x = 100;
-	m_Vec3Scale = Vector3(m_Size2D.x / screenWidth, m_Size2D.y / screenHeight, 1);
+	m_Vec3Scale = Vector3(m_Size2D.x / Application::screenWidth, m_Size2D.y / Application::screenHeight, 1);
 }
 
 Sprite2D::~Sprite2D()
@@ -147,8 +143,8 @@ void Sprite2D::Set2DPosition(GLfloat width, GLfloat height)
 	m_Vec2DPos.x = width;
 	m_Vec2DPos.y = height;
 
-	float xx = (2.0 * m_Vec2DPos.x) / screenWidth - 1.0;
-	float yy = 1.0 - (2.0 * m_Vec2DPos.y) / screenHeight;
+	float xx = (2.0 * m_Vec2DPos.x) / Application::screenWidth - 1.0;
+	float yy = 1.0 - (2.0 * m_Vec2DPos.y) / Application::screenHeight;
 	m_Vec3Position = Vector3(xx, yy, 1.0);
 
 	CaculateWorldMatrix();
@@ -158,8 +154,8 @@ void Sprite2D::Set2DPosition(Vector2 pos)
 {
 	m_Vec2DPos = pos;
 
-	float xx = (2.0 * m_Vec2DPos.x) / screenWidth - 1.0;
-	float yy = 1.0 - (2.0 * m_Vec2DPos.y) / screenHeight;
+	float xx = (2.0 * m_Vec2DPos.x) / Application::screenWidth - 1.0;
+	float yy = 1.0 - (2.0 * m_Vec2DPos.y) / Application::screenHeight;
 	m_Vec3Position = Vector3(xx, yy, 1.0);
 
 	CaculateWorldMatrix();
@@ -175,14 +171,14 @@ void Sprite2D::SetSize(GLint width, GLint height)
 {
 	m_Size2D.x = width;
 	m_Size2D.y = height;
-	m_Vec3Scale = Vector3(m_Size2D.x / screenWidth, m_Size2D.y / screenHeight, 1);
+	m_Vec3Scale = Vector3(m_Size2D.x / Application::screenWidth, m_Size2D.y / Application::screenHeight, 1);
 	CaculateWorldMatrix();
 }
 
 void Sprite2D::SetSize(Vector2 size)
 {
 	m_Size2D = size;
-	m_Vec3Scale = Vector3(m_Size2D.x / screenWidth, m_Size2D.y / screenHeight, 1);
+	m_Vec3Scale = Vector3(m_Size2D.x / Application::screenWidth, m_Size2D.y / Application::screenHeight, 1);
 	CaculateWorldMatrix();
 }
 

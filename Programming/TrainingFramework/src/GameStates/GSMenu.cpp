@@ -1,8 +1,5 @@
 #include "GSMenu.h"
 
-extern int screenWidth; //need get on Graphic engine
-extern int screenHeight; //need get on Graphic engine
-
 GSMenu::GSMenu()
 {
 
@@ -23,13 +20,13 @@ void GSMenu::Init()
 	//BackGround
 	auto shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
 	m_BackGround = std::make_shared<Sprite2D>(model, shader, texture);
-	m_BackGround->Set2DPosition(screenWidth / 2, screenHeight / 2);
-	m_BackGround->SetSize(screenWidth, screenHeight);
+	m_BackGround->Set2DPosition(Application::screenWidth / 2, Application::screenHeight / 2);
+	m_BackGround->SetSize(Application::screenWidth, Application::screenHeight);
 
 	//play button
 	texture = ResourceManagers::GetInstance()->GetTexture("button_play");
 	std::shared_ptr<GameButton> button = std::make_shared<GameButton>(model, shader, texture);
-	button->Set2DPosition(screenWidth / 2, 200);
+	button->Set2DPosition(Application::screenWidth / 2, 200);
 	button->SetSize(200, 50);
 	button->SetOnClick([]() {
 		GameStateMachine::GetInstance()->ChangeState(StateTypes::STATE_Play);
@@ -39,7 +36,7 @@ void GSMenu::Init()
 	//exit button
 	texture = ResourceManagers::GetInstance()->GetTexture("button_quit");
 	button = std::make_shared<GameButton>(model, shader, texture);
-	button->Set2DPosition(screenWidth / 2, 300);
+	button->Set2DPosition(Application::screenWidth / 2, 300);
 	button->SetSize(200, 50);
 	button->SetOnClick([]() {
 		exit(0);
@@ -51,7 +48,7 @@ void GSMenu::Init()
 	shader = ResourceManagers::GetInstance()->GetShader("TextShader");
 	std::shared_ptr<Font> font = ResourceManagers::GetInstance()->GetFont("arialbd");
 	m_Text_gameName = std::make_shared< Text>(shader, font, "SAMPLE NAME", TEXT_COLOR::GREEN, 1.0);
-	m_Text_gameName->Set2DPosition(Vector2(screenWidth / 2 - 80, 120));
+	m_Text_gameName->Set2DPosition(Vector2(Application::screenWidth / 2 - 80, 120));
 }
 
 void GSMenu::Exit()

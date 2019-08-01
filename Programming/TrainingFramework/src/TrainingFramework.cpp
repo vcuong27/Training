@@ -3,8 +3,7 @@
 #include "Application.h"
 #include "utilities.h" 
 
-GLint screenWidth = 480;
-GLint screenHeight = 800;
+
 
 
 GLint Init(ESContext* esContext)
@@ -51,7 +50,7 @@ GLint _tmain(GLint argc, _TCHAR* argv[])
 
 	ESContext esContext;
 	esInitContext(&esContext);
-	esCreateWindow(&esContext, "Demo Game", screenWidth, screenHeight, ES_WINDOW_RGB | ES_WINDOW_DEPTH);
+	esCreateWindow(&esContext, "Demo Game", Application::screenWidth, Application::screenHeight, ES_WINDOW_RGB | ES_WINDOW_DEPTH);
 	if (Init(&esContext) != 0)
 		return 0;
 

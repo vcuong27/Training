@@ -10,7 +10,7 @@ Player::Player(std::shared_ptr<Models>& model, std::shared_ptr<Shaders>& shader,
 	m_speed = 250;
 	m_MaxSpeed = 500;
 	m_Heal = 100;
-	m_SizeCollider = 20;
+	m_SizeCollider = 15;
 	m_isAlive = true;
 }
 

@@ -1,9 +1,9 @@
 #include "Application.h"
 #include "GameStates/GameStateMachine.h"
 #include "GameStates/GameStatebase.h"
-extern GLint screenWidth;
-extern GLint screenHeight;
 
+int Application::screenWidth = 480;
+int Application::screenHeight = 800;
 
 Application::Application()
 {

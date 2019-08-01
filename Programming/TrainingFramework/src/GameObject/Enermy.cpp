@@ -2,9 +2,6 @@
 #include "GameManager/ResourceManagers.h"
 #include <GameStates\GSPlay.h>
 
-extern int screenWidth; //need get on Graphic engine
-extern int screenHeight; //need get on Graphic engine
-
 Enermy::Enermy(std::shared_ptr<Models>& model, std::shared_ptr<Shaders>& shader, std::shared_ptr<Texture>& texture)
 	:Sprite2D(model, shader, texture)
 {
@@ -45,7 +42,7 @@ void Enermy::Update(float deltaTime)
 	pos.y = pos.y + m_speed * deltaTime;
 	Set2DPosition(pos);
 
-	if (pos.y > screenHeight)
+	if (pos.y > Application::screenHeight)
 		m_active = false;
 }
 
