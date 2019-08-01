@@ -15,10 +15,11 @@
 
 extern int screenWidth; //need get on Graphic engine
 extern int screenHeight; //need get on Graphic engine
-
+int GSPlay::m_score = 0;
 GSPlay::GSPlay()
 {
-
+	m_SpawnCooldown = 0.5;
+	m_score = 0;
 }
 
 
@@ -42,13 +43,16 @@ void GSPlay::Init()
 	texture = ResourceManagers::GetInstance()->GetTexture("Player");
 	m_Player = std::make_shared<Player >(model, shader, texture);
 	m_Player->Set2DPosition(screenWidth / 2, screenHeight - 100);
+	m_Player->MoveToPossition(Vector2(screenWidth / 2, screenHeight - 100));
 	m_Player->SetSize(50, 50);
 
 	//text game title
 	shader = ResourceManagers::GetInstance()->GetShader("TextShader");
 	std::shared_ptr<Font> font = ResourceManagers::GetInstance()->GetFont("arialbd");
-	m_score = std::make_shared< Text>(shader, font, "score: 10", TEXT_COLOR::RED, 1.0);
-	m_score->Set2DPosition(Vector2(5, 25));
+	m_scoreText = std::make_shared< Text>(shader, font, "SCORE: ", TEXT_COLOR::RED, 1.0);
+	m_scoreText->Set2DPosition(Vector2(5, 25));
+	m_playerHealText = std::make_shared< Text>(shader, font, "HEAL: ", TEXT_COLOR::RED, 1.0);
+	m_playerHealText->Set2DPosition(Vector2(5, 50));
 }
 
 void GSPlay::Exit()
@@ -75,43 +79,53 @@ void GSPlay::HandleEvents()
 
 void GSPlay::HandleKeyEvents(int key, bool bIsPressed)
 {
-	if (key == KEY_LEFT)
-	{
-		m_Player->MoveLeft();
-	}
-	else if (key == KEY_RIGHT)
-	{
-		m_Player->MoveRight();
-	}
 
-	LOGI("HandleKeyEvents =  %d\n", key);
 }
 
 void GSPlay::HandleMouseEvents(int x, int y)
 {
+	m_Player->MoveToPossition(Vector2(x, y));
 }
 
 
 void GSPlay::HandleTouchEvents(int x, int y, bool bIsPressed)
 {
-	CreateRandomEnermy();
 }
 
 void GSPlay::Update(float deltaTime)
 {
 
+	if (m_SpawnCooldown > 0)
+	{
+		m_SpawnCooldown -= deltaTime;
+	}
+	if (m_SpawnCooldown <= 0)
+	{
+		CreateRandomEnermy();
+		m_SpawnCooldown = 0.3;
+	}
+
 	//update player
-	m_Player->Update(deltaTime);
+	if (m_Player->IsAlive())
+	{
+		m_Player->Update(deltaTime);
 
-	if (m_Player->CanShoot())
-		m_Player->Shoot(m_listBullet);
+		if (m_Player->CanShoot())
+			m_Player->Shoot(m_listBullet);
 
+		m_Player->CheckCollider(m_listBullet, m_listEnermy);
+	}
 
 	//update enermies
 	for (auto enermy : m_listEnermy)
 	{
 		if (enermy->IsActive())
+		{
 			enermy->Update(deltaTime);
+			if (enermy->CanShoot())
+				enermy->Shoot(m_listBullet);
+			enermy->CheckCollider(m_listBullet);
+		}
 	}
 
 	//update bullets
@@ -123,9 +137,13 @@ void GSPlay::Update(float deltaTime)
 
 	//update Score
 	std::stringstream stream;
-	stream << std::fixed << std::setprecision(0) << 1.0f / deltaTime;
-	std::string fps ="FPS: " + stream.str();
-	m_score->setText(fps);
+	stream << std::fixed << std::setprecision(0) << m_score;
+	std::string score = "SCORE: " + stream.str();
+	m_scoreText->setText(score);
+	std::stringstream stream2;
+	stream2 << std::fixed << std::setprecision(0) << m_Player->GetHeal();
+	std::string heal = "HEAL: " + stream2.str();
+	m_playerHealText->setText(heal);
 }
 
 void GSPlay::Draw()
@@ -137,14 +155,16 @@ void GSPlay::Draw()
 		if (enermy->IsActive())
 			enermy->Draw();
 
-	m_Player->Draw();
+	if (m_Player->IsAlive())
+		m_Player->Draw();
 
 	for (auto bullet : m_listBullet)
 		if (bullet->IsActive())
 			bullet->Draw();
 
 	//UI
-	m_score->Draw();
+	m_scoreText->Draw();
+	m_playerHealText->Draw();
 }
 
 void GSPlay::CreateRandomEnermy()

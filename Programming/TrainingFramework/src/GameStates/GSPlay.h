@@ -27,14 +27,17 @@ public:
 	void Update(float deltaTime) override;
 	void Draw() override;
 	
+	static int m_score;
 
 private:
 	std::shared_ptr<Sprite2D> m_BackGround;
-	std::shared_ptr<Text>  m_score;
+	std::shared_ptr<Text>  m_scoreText;
+	std::shared_ptr<Text>  m_playerHealText;
 	std::shared_ptr<Player> m_Player;
 	std::vector<std::shared_ptr<Bullet>> m_listBullet;
 	std::vector<std::shared_ptr<Enermy>> m_listEnermy;
 
+	float m_SpawnCooldown;
 	void CreateRandomEnermy();
 };
 
