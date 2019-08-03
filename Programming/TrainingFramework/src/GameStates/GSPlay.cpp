@@ -51,6 +51,17 @@ void GSPlay::Init()
 	m_scoreText->Set2DPosition(Vector2(5, 25));
 	m_playerHealText = std::make_shared< Text>(shader, font, "HEAL: ", TEXT_COLOR::RED, 1.0);
 	m_playerHealText->Set2DPosition(Vector2(5, 50));
+
+	//init sound
+	SoundManager::GetInstance()->AddSound("explosive");
+	SoundManager::GetInstance()->AddSound("explosive_2");
+	SoundManager::GetInstance()->AddSound("bground");
+	SoundManager::GetInstance()->AddSound("fire");
+	SoundManager::GetInstance()->AddSound("fire_enemy");
+	
+	
+	SoundManager::GetInstance()->PlaySound("bground");
+
 }
 
 void GSPlay::Exit()

@@ -31,6 +31,7 @@ void Player::Update(GLfloat deltatime)
 
 	if (m_Heal <= 0)
 	{
+		SoundManager::GetInstance()->PlaySound("explosive_2");
 		m_isAlive = false;
 		return;
 	}
@@ -79,6 +80,7 @@ bool Player::CanShoot()
 
 void Player::Shoot(std::vector<std::shared_ptr<Bullet>>& listBullet)
 {
+	SoundManager::GetInstance()->PlaySound("fire");
 	m_Cooldown = m_MaxCooldown;
 	for (auto bullet : listBullet)
 	{
@@ -103,6 +105,8 @@ void Player::Shoot(std::vector<std::shared_ptr<Bullet>>& listBullet)
 	bullet->SetType(BULLET_TYPE::Player);
 
 	listBullet.push_back(bullet);
+
+
 }
 
 float Player::distance(Vector2 pos, Vector2 target)

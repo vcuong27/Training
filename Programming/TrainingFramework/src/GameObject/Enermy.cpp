@@ -28,6 +28,7 @@ void Enermy::Update(float deltaTime)
 
 	if (m_Heal <= 0 || m_Explosive)
 	{
+		SoundManager::GetInstance()->PlaySound("explosive");
 		m_active = false;
 		GSPlay::m_score ++;
 		return;

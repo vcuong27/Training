@@ -1,6 +1,7 @@
 #include "Application.h"
 #include "GameStates/GameStateMachine.h"
 #include "GameStates/GameStatebase.h"
+#include "GameManager/SoundManager.h"
 
 int Application::screenWidth = 480;
 int Application::screenHeight = 800;
