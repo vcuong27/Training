@@ -116,7 +116,6 @@ void SpriteSheet::Draw()
 		int column = m_CurrentPos % (int)m_data.x;
 		int row = m_CurrentPos / (int)m_data.x;
 		Vector2 data(column, row);
-		printf("SpriteSheet %d, %d \n" , row, column);
 		glUniform2fv(u_pos, 1, (GLfloat*)(&data));
 	}
 

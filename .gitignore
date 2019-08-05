@@ -30,3 +30,6 @@
 /sample/project/pcviewer_es2.cfg
 /Programming/TrainingFramework/Release-Nvidia
 /Programming/Utilities/Release-Nvidia
+/Programming/TrainingFramework/Debug-Nvidia
+/Programming/Utilities/Debug-Nvidia
+/Programming/soloud/Debug
