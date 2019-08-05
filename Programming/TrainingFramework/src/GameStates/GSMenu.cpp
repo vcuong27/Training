@@ -16,12 +16,13 @@ void GSMenu::Init()
 {
 	auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D");
 	auto texture = ResourceManagers::GetInstance()->GetTexture("bg_main_menu");
-
+	
 	//BackGround
 	auto shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
 	m_BackGround = std::make_shared<Sprite2D>(model, shader, texture);
 	m_BackGround->Set2DPosition(Application::screenWidth / 2, Application::screenHeight / 2);
 	m_BackGround->SetSize(Application::screenWidth, Application::screenHeight);
+
 
 	//play button
 	texture = ResourceManagers::GetInstance()->GetTexture("button_play");

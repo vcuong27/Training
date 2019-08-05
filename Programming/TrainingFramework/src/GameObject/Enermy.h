@@ -24,6 +24,7 @@ public:
 	float		GetDamage();
 
 	void		Explosive();
+	bool		IsExplosive();
 
 private:
 	int		m_Heal;

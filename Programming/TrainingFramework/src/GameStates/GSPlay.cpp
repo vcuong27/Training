@@ -12,6 +12,7 @@
 #include "Player.h"
 #include "Enermy.h"
 #include "Bullet.h"
+#include "ExplosiveEffect.h"
 
 int GSPlay::m_score = 0;
 GSPlay::GSPlay()
@@ -52,14 +53,21 @@ void GSPlay::Init()
 	m_playerHealText = std::make_shared< Text>(shader, font, "HEAL: ", TEXT_COLOR::RED, 1.0);
 	m_playerHealText->Set2DPosition(Vector2(5, 50));
 
+	//init effect
+	model = ResourceManagers::GetInstance()->GetModel("Sprite2D");
+	texture = ResourceManagers::GetInstance()->GetTexture("explosive");
+	shader = ResourceManagers::GetInstance()->GetShader("SpriteShader");
+	std::shared_ptr<ExplosiveEffect> exp = std::make_shared<ExplosiveEffect>(model, shader, texture, Vector2(960, 768), Vector2(192, 192), 0, 19, 0.7);
+	exp->SetSize(100, 100);
+	exp->SetActive(false);
+	m_listExplosiveEffect.push_back(exp);
+
 	//init sound
 	SoundManager::GetInstance()->AddSound("explosive");
 	SoundManager::GetInstance()->AddSound("explosive_2");
 	SoundManager::GetInstance()->AddSound("bground");
 	SoundManager::GetInstance()->AddSound("fire");
 	SoundManager::GetInstance()->AddSound("fire_enemy");
-	
-	
 	SoundManager::GetInstance()->PlaySound("bground");
 
 }
@@ -130,10 +138,25 @@ void GSPlay::Update(float deltaTime)
 	{
 		if (enermy->IsActive())
 		{
+			if (enermy->IsExplosive())
+			{
+				enermy->SetActive(false);
+				SpawnExplosive(enermy->Get2DPosition());
+				continue;
+			}
 			enermy->Update(deltaTime);
 			if (enermy->CanShoot())
 				enermy->Shoot(m_listBullet);
 			enermy->CheckCollider(m_listBullet);
+		}
+	}
+
+
+	for (auto exp : m_listExplosiveEffect)
+	{
+		if (exp->IsActive())
+		{
+			exp->Update(deltaTime);
 		}
 	}
 
@@ -171,6 +194,14 @@ void GSPlay::Draw()
 		if (bullet->IsActive())
 			bullet->Draw();
 
+	for (auto exp : m_listExplosiveEffect)
+	{
+		if (exp->IsActive())
+		{
+			exp->Draw();
+		}
+	}
+
 	//UI
 	m_scoreText->Draw();
 	m_playerHealText->Draw();
@@ -194,15 +225,36 @@ void GSPlay::CreateRandomEnermy()
 			enermy->Set2DPosition(pos);
 			return;
 		}
-
 	}
 	auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D");
 	auto shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
-	auto texture = ResourceManagers::GetInstance()->GetTexture("Enermy_1");
+	auto texture = ResourceManagers::GetInstance()->GetTexture("Player");
 
 	std::shared_ptr<Enermy> enermy = std::make_shared<Enermy>(model, shader, texture);
 	enermy->Set2DPosition(pos);
 	enermy->SetSize(40, 40);
 	enermy->SetRotation(180);
 	m_listEnermy.push_back(enermy);
+}
+
+void GSPlay::SpawnExplosive(Vector2 pos)
+{
+	for (auto exp : m_listExplosiveEffect)
+	{
+		if (!exp->IsActive())
+		{
+			exp->SetActive(true);
+			exp->Set2DPosition(pos);
+			return;
+		}
+	}
+
+	//animation
+	auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D");
+	auto texture = ResourceManagers::GetInstance()->GetTexture("explosive");
+	auto shader = ResourceManagers::GetInstance()->GetShader("SpriteShader");
+	std::shared_ptr<ExplosiveEffect> exp = std::make_shared<ExplosiveEffect>(model, shader, texture, Vector2(960, 768), Vector2(192, 192), 0, 19, 0.7);
+	exp->SetSize(100, 100);
+	exp->Set2DPosition(pos);
+	m_listExplosiveEffect.push_back(exp);
 }

@@ -29,7 +29,7 @@ void Enermy::Update(float deltaTime)
 	if (m_Heal <= 0 || m_Explosive)
 	{
 		SoundManager::GetInstance()->PlaySound("explosive");
-		m_active = false;
+		m_Explosive = true;
 		GSPlay::m_score ++;
 		return;
 	}
@@ -130,6 +130,11 @@ float Enermy::GetDamage()
 void Enermy::Explosive()
 {
 	m_Explosive = true;
+}
+
+bool Enermy::IsExplosive()
+{
+	return m_Explosive;
 }
 
 

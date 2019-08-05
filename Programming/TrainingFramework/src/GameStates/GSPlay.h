@@ -5,6 +5,7 @@ class Player;
 class Bullet;
 class Enermy;
 class Text;
+class ExplosiveEffect;
 
 class GSPlay :
 	public GameStateBase
@@ -36,8 +37,10 @@ private:
 	std::shared_ptr<Player> m_Player;
 	std::vector<std::shared_ptr<Bullet>> m_listBullet;
 	std::vector<std::shared_ptr<Enermy>> m_listEnermy;
+	std::vector<std::shared_ptr<ExplosiveEffect>> m_listExplosiveEffect;
 
 	float m_SpawnCooldown;
 	void CreateRandomEnermy();
+	void SpawnExplosive(Vector2 pos);
 };
 
